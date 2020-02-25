@@ -21,7 +21,7 @@ import javax.json.JsonObject;
 
 public class TokenManager {
 
-	public TokenRequest readTokenRequestFromJSON(String path) throws TokenManagementException {
+	public TokenRequest ReadTokenRequestFromJSON(String path) throws TokenManagementException {
 		TokenRequest req = null;
 
 		String fileContents = "";
