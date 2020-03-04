@@ -21,6 +21,9 @@ import javax.json.JsonObject;
 
 public class TokenManager {
 
+  public String TokenRequestGeneration
+  
+  
 	public TokenRequest ReadTokenRequestFromJSON(String path) throws TokenManagementException {
 		TokenRequest req = null;
 
@@ -30,6 +33,7 @@ public class TokenManager {
 		try {
 			reader = new BufferedReader(new FileReader(path));
 		} catch (FileNotFoundException e) {
+		  +´m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 			throw new TokenManagementException("Error: input file not found.");
 		}
 		String line;
