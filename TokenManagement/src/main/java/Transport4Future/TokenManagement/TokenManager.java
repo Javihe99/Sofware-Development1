@@ -21,7 +21,13 @@ import javax.json.JsonObject;
 
 public class TokenManager {
 
-  public String TokenRequestGeneration
+  public String TokenRequestGeneration(String path) throws TokenManagementException{
+    TokenRequest Token;
+    
+    Token = ReadTokenRequestFromJSON(path);
+ 
+    return Token.toString();
+  }
   
   
 	public TokenRequest ReadTokenRequestFromJSON(String path) throws TokenManagementException {
@@ -33,7 +39,7 @@ public class TokenManager {
 		try {
 			reader = new BufferedReader(new FileReader(path));
 		} catch (FileNotFoundException e) {
-		  +´m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 			throw new TokenManagementException("Error: input file not found.");
 		}
 		String line;
