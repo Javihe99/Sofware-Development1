@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 class TokenTest {
   
@@ -33,7 +35,11 @@ class TokenTest {
     }
     
   
+  @DisplayName("Invalid Test Cases")
+  @ParameterizedTest(name="{index} -with the input ''{0}'' error expected is ''{1}''")
+  @CsvFileSource (resources="/invalidTestCasesrRequestGenerationTest.csv")
   
+  void
   
   @BeforeAll
   static void SetUpBeforeClass() throws Exception {
