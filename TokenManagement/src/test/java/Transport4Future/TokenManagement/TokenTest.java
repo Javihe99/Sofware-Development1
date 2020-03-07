@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 class TokenTest {
   
@@ -33,6 +35,24 @@ class TokenTest {
     }
     
   
+  @DisplayName("Correct Token Generation")
+  @Test
+  void CorrectTokenGenerationTest() throws TokenManagementException{
+    String FilePath = this.jsonFilesFolder + "Correct.json";
+    String expectedToken = "5136a7fc64013259b958ebc707530c7e";
+    String obtainedToken = myManager.TokenRequestGeneration(FilePath);
+    assertEquals (expectedToken, obtainedToken);
+  }
+  
+  @DisplayName("Invalid Test Cases")
+  @ParameterizedTest(name = "{index} - {2}")
+  @CsvFileSource(resources = "/invalidTestCasesRequestGenerationTest.csv")
+  void InvalidTestCases(String InputFilePath, String expectedMessage) {
+    TokenManagementException ex = Assertions.assertThrows(TokenManagementException.class,()-> {
+      myManager.TokenRequestGeneration(InputFilePath);
+    });
+    assertEquals (expectedMessage, ex.getMessage());
+  }
   
   
   @BeforeAll
