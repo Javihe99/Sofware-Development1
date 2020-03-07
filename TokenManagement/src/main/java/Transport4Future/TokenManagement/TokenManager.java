@@ -35,6 +35,7 @@ public class TokenManager {
   }
   
   
+<<<<<<< HEAD
 	private String CodeHashMD5(TokenRequest mytoken)throws TokenManagementException {
     MessageDigest md;
     try {
@@ -54,6 +55,10 @@ public class TokenManager {
 
 
   public TokenRequest ReadTokenRequestFromJSON(String path) throws TokenManagementException {
+=======
+  
+	public TokenRequest ReadTokenRequestFromJSON(String path) throws TokenManagementException {
+>>>>>>> branch 'Javei' of https://pds.sel.inf.uc3m.es/mcarrero/g50.t6.eg
 		TokenRequest req = null;
 
 		String fileContents = "";
