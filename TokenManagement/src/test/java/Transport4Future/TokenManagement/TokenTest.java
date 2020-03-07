@@ -35,11 +35,17 @@ class TokenTest {
     }
     
   
-<<<<<<< HEAD
+
   @DisplayName("Invalid Test Cases")
   @ParameterizedTest(name="{index} -with the input ''{0}'' error expected is ''{1}''")
   @CsvFileSource (resources="/invalidTestCasesrRequestGenerationTest.csv")
-=======
+  void InvalidTest(String FilePath, String expectedMessage) throws TokenManagementException{
+    TokenManagementException ex = Assertions.assertThrows(TokenManagementException.class,()-> {
+      myManager.TokenRequestGeneration(FilePath);
+    });
+    assertEquals (expectedMessage, ex.getMessage());
+  }
+
   @DisplayName("Correct Token Generation")
   @Test
   void CorrectTokenGenerationTest() throws TokenManagementException{
@@ -58,9 +64,9 @@ class TokenTest {
     });
     assertEquals (expectedMessage, ex.getMessage());
   }
->>>>>>> branch 'Javei' of https://pds.sel.inf.uc3m.es/mcarrero/g50.t6.eg
+
   
-  void
+
   
   @BeforeAll
   static void SetUpBeforeClass() throws Exception {
