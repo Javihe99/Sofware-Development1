@@ -10,6 +10,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,14 +27,33 @@ public class TokenManager {
 
   public String TokenRequestGeneration(String path) throws TokenManagementException{
     TokenRequest Token;
+    String myToken;
     
     Token = ReadTokenRequestFromJSON(path);
- 
+    myToken = CodeHashMD5(Token);
     return Token.toString();
   }
   
   
-	public TokenRequest ReadTokenRequestFromJSON(String path) throws TokenManagementException {
+	private String CodeHashMD5(TokenRequest mytoken)throws TokenManagementException {
+    MessageDigest md;
+    try {
+      md = MessageDigest.getInstance("MD5");
+    } catch (NoSuchAlgorithmException e) {
+      throw new TokenManagementException("Error: no such hashing algorithm.");
+    }
+    
+    String input ="Stardust"+"-"+mytoken.toString();
+    md.update(input.getBytes(StandardCharsets.UTF_8)); 
+    byte[] digest=md.digest();
+    
+    String hex =String.format("%32x",new BigInteger(1,digest));
+    
+    return hex;
+    }
+
+
+  public TokenRequest ReadTokenRequestFromJSON(String path) throws TokenManagementException {
 		TokenRequest req = null;
 
 		String fileContents = "";
@@ -62,12 +85,14 @@ public class TokenManager {
 
 		try {
 			String deviceName = jsonLicense.getString("Device Name");
-			Date requestDate = df.parse(jsonLicense.getString("Request Date"));
+			String typeOfDevice = jsonLicense.getString("Typeof Device");
+			String driverVersion = jsonLicense.getString("Driver Version");
+			String supportEmail = jsonLicense.getString("Support e-mail");
 			String serialNumber = jsonLicense.getString("Serial Number");
 			String macAddress = jsonLicense.getString("MAC Address");
-			
+			Date requestDate = df.parse(jsonLicense.getString("Request Date"));
 			req = new TokenRequest(deviceName, requestDate, serialNumber, macAddress);
-		} catch (ParseException pe) {
+		} catch (Exception pe) {
 			throw new TokenManagementException("Error: invalid input data in JSON structure.");
 		}
 

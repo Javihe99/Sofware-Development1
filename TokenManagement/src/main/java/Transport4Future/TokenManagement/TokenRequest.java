@@ -14,6 +14,10 @@ public class TokenRequest {
 	private Date requestDate;
 	private String serialNumber;
 	private String macAddress;
+	private String typeOfDevice ;
+	private String driverVersion ;
+	private String supportEmail ;
+	
 	
 	public TokenRequest(String deviceName, Date creationDate, String serialNumber, String macAddress) {
 		this.deviceName = deviceName;
@@ -28,4 +32,28 @@ public class TokenRequest {
 		    this.requestDate + ",\n\t\\Serial Number="
 				+ this.serialNumber + ",\n\t\\MAC Address=" + this.macAddress + "\n]";
 	}
+
+  public String getDriverVersion() {
+    return driverVersion;
+  }
+
+  public void setDriverVersion(String driverVersion) {
+    this.driverVersion = driverVersion;
+  }
+
+  public String getTypeOfDevice() {
+    return typeOfDevice;
+  }
+
+  public void setTypeOfDevice(String typeOfDevice) {
+    this.typeOfDevice = typeOfDevice;
+  }
+
+  public String getSupportEmail() {
+    return supportEmail;
+  }
+
+  public void setSupportEmail(String supportEmail) {
+    this.supportEmail = supportEmail;
+  }
 }
