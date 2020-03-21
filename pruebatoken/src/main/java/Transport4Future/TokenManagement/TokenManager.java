@@ -87,8 +87,8 @@ public class TokenManager {
 	      String supportEmail = jsonLicense.getString("Support e-mail");
 	      String serialNumber = jsonLicense.getString("Serial Number");
 	      String macAddress = jsonLicense.getString("MAC Address");
-	      Date requestDate = df.parse(jsonLicense.getString("Request Date"));
-	      req = new TokenRequest(deviceName, requestDate, serialNumber, macAddress);
+//	      Date requestDate = df.parse(jsonLicense.getString("Request Date"));
+	      req = new TokenRequest(deviceName, serialNumber, macAddress,supportEmail,driverVersion,typeOfDevice);
 	    } catch (Exception pe) {
 	      throw new TokenManagementException("Error: invalid input data in JSON structure.");
 	    }

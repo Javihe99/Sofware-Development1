@@ -18,7 +18,7 @@ package Transport4Future.TokenManagement;
 	  private String jsonFilesFolder;
 	 
 	 public pruebaTest() {
-	   jsonFilesFolder = System.getProperty("user.dir")+"/JSONFILE/Prueba/";
+	   jsonFilesFolder = System.getProperty("user.dir")+"/JSONFILE/FR1/";
 	   
 	   myManager = new TokenManager();
 	 }
@@ -49,7 +49,7 @@ package Transport4Future.TokenManagement;
 	 @DisplayName("Correct Token Generation")
 	 @Test
 	 void CorrectTokenGenerationTest() throws TokenManagementException{
-	   String FilePath = this.jsonFilesFolder + "correcto.json";
+	   String FilePath = this.jsonFilesFolder + "Correct.json";
 	   String expectedToken = "5136a7fc64013259b958ebc707530c7e";
 	   String obtainedToken = myManager.TokenRequestGeneration(FilePath);
 	   assertEquals (expectedToken, obtainedToken);
