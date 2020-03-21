@@ -50,9 +50,35 @@ public class TokenTest {
  @Test
  void CorrectTokenGenerationTest() throws TokenManagementException{
    String FilePath = this.jsonFilesFolder + "Correct.json";
-   String expectedToken = "5136a7fc64013259b958ebc707530c7e";
+   String expectedToken = "9550500e9a6afe8f078f6217f9ecdabb";
    String obtainedToken = myManager.TokenRequestGeneration(FilePath);
    assertEquals (expectedToken, obtainedToken);
+ }
+ @DisplayName("Blank file test")
+ @Test
+ void BlankTestfileTest() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "BlankFile.json";
+	String expectedToken ="";
+	String obtainedToken = myManager.TokenRequestGeneration(FilePath);
+	assertEquals (expectedToken, obtainedToken);
+ }
+ 
+ @DisplayName("None Device Name")
+ @Test
+ void NoneDeviceName() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "NoneDeviceName.json";
+	String expectedToken ="";
+	String obtainedToken = myManager.TokenRequestGeneration(FilePath);
+	assertEquals (expectedToken, obtainedToken);
+ }
+ 
+ @DisplayName("None Right Bracket")
+ @Test
+ void NoneRightBracket() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "NoneRightBracket.json";
+	String expectedToken ="";
+	String obtainedToken = myManager.TokenRequestGeneration(FilePath);
+	assertEquals (expectedToken, obtainedToken);
  }
  
  @DisplayName("Invalid Test Cases")

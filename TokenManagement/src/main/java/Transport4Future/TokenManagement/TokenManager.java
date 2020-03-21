@@ -78,16 +78,17 @@ public class TokenManager {
 	    JsonObject jsonLicense = Json.createReader(new StringReader(fileContents)).readObject();
 
 	    DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
-
+	   
 	    try {
 	      String deviceName = jsonLicense.getString("Device Name");
-	      String typeOfDevice = jsonLicense.getString("Typeof Device");
+	      String typeOfDevice = jsonLicense.getString("Type of Device");
 	      String driverVersion = jsonLicense.getString("Driver Version");
 	      String supportEmail = jsonLicense.getString("Support e-mail");
 	      String serialNumber = jsonLicense.getString("Serial Number");
 	      String macAddress = jsonLicense.getString("MAC Address");
-//	      Date requestDate = df.parse(jsonLicense.getString("Request Date"));
-	      req = new TokenRequest(deviceName, serialNumber, macAddress,supportEmail,driverVersion,typeOfDevice);
+	      System.out.print(macAddress);
+	      //Date requestDate = df.parse(jsonLicense.getString("Request Date"));
+	      req = new TokenRequest(deviceName,typeOfDevice,driverVersion,supportEmail, serialNumber, macAddress);
 	    } catch (Exception pe) {
 	      throw new TokenManagementException("Error: invalid input data in JSON structure.");
 	    }
