@@ -17,6 +17,7 @@ import java.util.Locale;
 import javax.json.Json;
 import javax.json.JsonObject;
 
+
 public class TokenManager {
 
 	public String TokenRequestGeneration(String path) throws TokenManagementException{
@@ -25,7 +26,7 @@ public class TokenManager {
 	    
 	    Token = ReadTokenRequestFromJSON(path);
 	    myToken = CodeHashMD5(Token);
-	    return myToken;
+	    return Token.toString();
 	  }
 	  
 	  
