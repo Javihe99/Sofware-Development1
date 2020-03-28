@@ -3,10 +3,6 @@ package Transport4Future.TokenManagement;
 import java.util.Date;
 
 public class TokenRequest {
-	/*String deviceName = jsonLicense.getString("Device Name");
-	      String typeOfDevice = jsonLicense.getString("Typeof Device");
-	      String driverVersion = jsonLicense.getString("Driver Version");
-	      String supportEmail = jsonLicense.getString("Support e-mail");*/
 	private String deviceName;
 	//private Date requestDate;
 	private String serialNumber;
