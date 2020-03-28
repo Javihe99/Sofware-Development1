@@ -26,7 +26,7 @@ public class TokenManager {
 	    
 	    Token = ReadTokenRequestFromJSON(path);
 	    myToken = CodeHashMD5(Token);
-	    return Token.toString();
+	    return myToken;
 	  }
 	  
 	  
@@ -75,25 +75,93 @@ public class TokenManager {
 	    } catch (IOException e) {
 	      throw new TokenManagementException("Error: input file could not be closed.");
 	    }
-
-	    JsonObject jsonLicense = Json.createReader(new StringReader(fileContents)).readObject();
-
-	    DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
-	   
+	    /*JsonObject jsonLicense;
 	    try {
-	      String deviceName = jsonLicense.getString("Device Name");
-	      String typeOfDevice = jsonLicense.getString("Type of Device");
-	      String driverVersion = jsonLicense.getString("Driver Version");
-	      String supportEmail = jsonLicense.getString("Support e-mail");
-	      String serialNumber = jsonLicense.getString("Serial Number");
-	      String macAddress = jsonLicense.getString("MAC Address");
-	      System.out.print(macAddress);
-	      //Date requestDate = df.parse(jsonLicense.getString("Request Date"));
-	      req = new TokenRequest(deviceName,typeOfDevice,driverVersion,supportEmail, serialNumber, macAddress);
-	    } catch (Exception pe) {
-	      throw new TokenManagementException("Error: invalid input data in JSON structure.");
-	    }
+	    	 jsonLicense = Json.createReader(new StringReader(fileContents)).readObject();
+	    }catch (NullPointerException e) {
+	    	 throw new TokenManagementException("Error: input file could not be read.");
+	    }*/
+	    
+	   
+	    if(fileContents.length()>1) {
+	    	
+	    	   JsonObject jsonLicense;
+	    	   String deviceName;
+	    	   String typeOfDevice;
+	    	   String driverVersion;
+	    	   try {
 
-	    return req;
+	    	   jsonLicense = Json.createReader(new StringReader(fileContents)).readObject();
+	    	   }catch(Exception e){
+	    		   throw new TokenManagementException("Error: invalid input data in JSON structure.");
+	    	   }
+		       DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
+		       System.out.println("--------------------before-------------------------------------");
+		       
+		
+	    	try {
+	    		 deviceName = jsonLicense.getString("Device Name");
+	    	}catch(Exception e) {
+	    		throw new TokenManagementException("Error: Device Name not found");
+	    	}
+	    	
+	    	if(deviceName.length()>20 || deviceName.length()<1) {
+	    		throw new TokenManagementException("Error: Device Name size is not correct");
+	    	}
+	    		
+	    	try {
+	    		typeOfDevice = jsonLicense.getString("Type of Device");
+	    	}catch(Exception e) {
+	    		throw new TokenManagementException("Error: type Of Device not found");
+	    	}
+	    	
+	    	if(!(typeOfDevice.equals("Sensor")||typeOfDevice.equals("Actuator"))) {
+	    		throw new TokenManagementException("Error: type of device is not correct");
+	    	}
+	    	
+	    	try {
+	    		  driverVersion = jsonLicense.getString("Driver Version");
+
+	    	}catch(Exception e) {
+	    		throw new TokenManagementException("Error: Driver Version not found");
+	    	}
+	    	
+	    	if(driverVersion.length()<2 ||driverVersion.length()>25 ||driverVersion.indexOf(".")==-1) {
+	    		throw new TokenManagementException("Error: driver version structure not correct");
+	    	}
+	    	
+	    	try{
+	    		String [] aux = driverVersion.split("\\.");
+	    		for(int i = 0; i<aux.length; i++) {
+	    			Integer.parseInt(aux[i]);
+	    		}
+	    		
+	    	} catch(Exception e){
+	    		System.out.println("***************************************************************");
+	    		throw new TokenManagementException("Error: driver version is not digital");
+	    	}
+	    		
+	    	
+	    	
+		    try {
+		    
+		     
+		      
+		      String supportEmail = jsonLicense.getString("Support e-mail");
+		      String serialNumber = jsonLicense.getString("Serial Number");
+		      String macAddress = jsonLicense.getString("MAC Address");
+		      System.out.print(macAddress);
+		      //Date requestDate = df.parse(jsonLicense.getString("Request Date"));
+		      req = new TokenRequest(deviceName,typeOfDevice,driverVersion,supportEmail, serialNumber, macAddress);
+		    } catch (Exception pe) {
+		      throw new TokenManagementException("Error: invalid input data in JSON structure.");
+		    }
+		    System.out.println("--------------------if1-------------------------------------");
+		    return req;
+	    	   
+	    }
+	    System.out.println("--------------------hola1-------------------------------------");
+	    throw new TokenManagementException("Error: input file could not be read.");
+	  
 	  }
 }
