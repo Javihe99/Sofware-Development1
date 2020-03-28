@@ -25,6 +25,11 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonParseException;
 
 public class TokenManager {
+	
+	public String RequestToken(String InputFile) throws TokenManagementException{
+		Token myToken = null;
+		return null;
+	}
 
 	public String TokenRequestGeneration(String path) throws TokenManagementException{
 	    TokenRequest Token;
