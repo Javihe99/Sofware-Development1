@@ -302,16 +302,7 @@ public class TokenTest {
  }
 
 
- @DisplayName("None Right Bracket")
- @Test
- void NoneRightBracket() throws TokenManagementException{
-	String FilePath = this.jsonFilesFolder + "NoneRightBracket.json";
-	String expectedToken ="Error: invalid input data in JSON structure.";
-	TokenManagementException obtainedToken = Assertions.assertThrows(TokenManagementException.class,()-> {
-		myManager.TokenRequestGeneration(FilePath);
-	   });
-	assertEquals (expectedToken, obtainedToken.getMessage());
- }
+
 
  /*TEST DE DEVICE NAME*/
  

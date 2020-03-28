@@ -10,19 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 import javax.json.Json;
 import javax.json.JsonException;
 import javax.json.JsonObject;
-import javax.json.stream.JsonParsingException;
-
-import org.json.JSONException;
-
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonParseException;
 
 public class TokenManager {
 	
@@ -172,7 +164,7 @@ public class TokenManager {
 		  }catch(Exception e){
 			  throw new TokenManagementException("serialNumber no encontrado");
 		  }
-		  if(serialNumber.matches("^[\\w\\|](\\w*\\-*)+$")) {
+		  if(serialNumber.matches("^[\\w\\-]+$")) {
 		  }else {
 			  throw new TokenManagementException("Formato serialNumber incorrecto");
 		  }
@@ -183,12 +175,11 @@ public class TokenManager {
 		  }catch(Exception e){
 			  throw new TokenManagementException("macAddress no encontrado");
 		  }
-		  if(macAddress.matches("^([A-Z0-9]{2}:?){6}$")) {
+		  if(macAddress.matches("^([A-Z0-9]{2}:){5}[A-Z0-9]{2}$")) {
 		  }else {
 			  throw new TokenManagementException("Formato macAddress incorrecto");
 		  }
 		      
-
 	      
 	      //Date requestDate = df.parse(jsonLicense.getString("Request Date"));
 	    	req = new TokenRequest(deviceName,typeOfDevice,driverVersion,supportEmail, serialNumber, macAddress);
