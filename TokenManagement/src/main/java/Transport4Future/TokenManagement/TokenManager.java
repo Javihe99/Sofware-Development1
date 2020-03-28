@@ -10,19 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 import javax.json.Json;
 import javax.json.JsonException;
 import javax.json.JsonObject;
-import javax.json.stream.JsonParsingException;
-
-import org.json.JSONException;
-
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonParseException;
 
 public class TokenManager {
 	
