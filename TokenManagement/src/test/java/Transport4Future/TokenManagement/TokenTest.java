@@ -34,9 +34,252 @@ public class TokenTest {
    assertEquals(expectedMessage,ex.getMessage());
    }
    
- 
+
 
  /*@DisplayName("Invalid Test Cases")
+=======
+/* Test correcto*/
+ @DisplayName("Correct Token Generation")
+ @Test
+ void CorrectTokenGenerationTest() throws TokenManagementException{
+   String FilePath = this.jsonFilesFolder + "Correct.json";
+   String expectedToken = "9550500e9a6afe8f078f6217f9ecdabb";
+   String obtainedToken = myManager.TokenRequestGeneration(FilePath);
+   assertEquals (expectedToken, obtainedToken);
+ }
+ @DisplayName("Correct Token Generation")
+ @Test
+ void CorrectTokenGenerationTest1() throws TokenManagementException{
+   String FilePath = this.jsonFilesFolder + "Correct1.json";
+   String expectedToken = "38394b8b32cc11bf795868dd3cc606b4";
+   String obtainedToken = myManager.TokenRequestGeneration(FilePath);
+   assertEquals (expectedToken, obtainedToken);
+ }
+ 
+ 
+ /*Vamos a realizar comprobaciones en el email*/ 
+ 
+ @DisplayName("No hay Email")
+ @Test
+ void NohayEmail() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "NohayEmail.json";
+	String expectedToken ="supportEmail no encontrado";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ /*El email debe seguir el siguiente formato (letras o numeros)@(Letras o numeros).(letras)*/
+ @DisplayName("Email sin @")
+ @Test
+ void EmailSinArroba() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "EmailSinArroba.json";
+	String expectedToken ="Formato supportEmail incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ @DisplayName("Email sin Dominio")
+ @Test
+ void EmailSinDominio() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "EmailSinDominio.json";
+	String expectedToken ="Formato supportEmail incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ @DisplayName("Email sin nombre")
+ @Test
+ void EmailsinNombre() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "EmailsinNombre.json";
+	String expectedToken ="Formato supportEmail incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ @DisplayName("Email sin punto")
+ @Test
+ void EmailSinPunto() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "EmailSinPunto.json";
+	String expectedToken ="Formato supportEmail incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ @DisplayName("Email sin servidor")
+ @Test
+ void EmailSinServidor() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "EmailSinServidor.json";
+	String expectedToken ="Formato supportEmail incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ @DisplayName("Email con simbolos raros")
+ @Test
+ void EmailSimbRaro() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "EmailSimbRaro.json";
+	String expectedToken ="Formato supportEmail incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ @DisplayName("Email con Numero en el dominio")
+ @Test
+ void EmailNumDominio() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "EmailNumDominio.json";
+	String expectedToken ="Formato supportEmail incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ @DisplayName("Email vacío")
+ @Test
+ void EmailVacio() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "EmailVacio.json";
+	String expectedToken ="Formato supportEmail incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ 
+/*Vamos a realizar comprobaciones en el Serial Number*/
+ 
+ @DisplayName("No hay Serial Number")
+ @Test
+ void NohaySerialNumber() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "NohaySerialNumber.json";
+	String expectedToken ="serialNumber no encontrado";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ /*Serial Number puede ser numeros y/o letras y/o barras(|)*/
+ @DisplayName("Serial Number con caracteres raros")
+ @Test
+ void SNSimbRaro() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "SNSimbRaro.json";
+	String expectedToken ="Formato serialNumber incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ @DisplayName("Serial number vacío")
+ @Test
+ void SNvacio() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "SNvacio.json";
+	String expectedToken ="Formato serialNumber incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ @DisplayName("Serial number con espacio")
+ @Test
+ void SNConEspacio() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "SNConEspacio.json";
+	String expectedToken ="Formato serialNumber incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+	
+ }
+/*Vamos a realizar comprobaciones en el macAdress*/
+ 
+ @DisplayName("No hay macAdress")
+ @Test
+ void NohaymacAddress() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "NohaymacAddress.json";
+	String expectedToken ="macAddress no encontrado";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ /*El macAddress debe seguir el siguiente formato "XX:XX:XX:XX:XX:XX" siendo X un numero o letra*/
+ @DisplayName("macAddress con puntos")
+ @Test
+ void macAddConPuntos() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "macAddConPuntos.json";
+	String expectedToken ="Formato macAddress incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ @DisplayName("macAddress con espacio")
+ @Test
+ void macAddConEspacip() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "macAddConEspacio.json";
+	String expectedToken ="Formato macAddress incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ 
+ @DisplayName("macAddress formado por un campo")
+ @Test
+ void macAddUnCampo() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "macAddUnCampo.json";
+	String expectedToken ="Formato macAddress incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+ @DisplayName("macAddress con simbolo Raro")
+ @Test
+ void macAddSimbRaro() throws TokenManagementException{
+	String FilePath = this.jsonFilesFolder + "macAddSimbRaro.json";
+	String expectedToken ="Formato macAddress incorrecto";
+	TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+	     myManager.TokenRequestGeneration(FilePath);
+	   });
+	
+	assertEquals (expectedToken, ex.getMessage());
+ }
+/*
+ @DisplayName("Invalid Test Cases")
+>>>>>>> branch 'EG3' of https://pds.sel.inf.uc3m.es/mcarrero/g50.t6.eg
  @ParameterizedTest(name="{index} -with the input ''{0}'' error expected is ''{1}''")
  @CsvFileSource (resources="/invalidTestCasesrRequestGenerationTest.csv")
  void InvalidTest(String FilePath, String expectedMessage) throws TokenManagementException{
@@ -59,16 +302,6 @@ public class TokenTest {
  }
 
 
- @DisplayName("Correct Token Generation")
- @Test
- void CorrectTokenGenerationTest() throws TokenManagementException{
-   String FilePath = this.jsonFilesFolder + "Correct.json";
-   String expectedToken = "9550500e9a6afe8f078f6217f9ecdabb";
-   String obtainedToken = myManager.TokenRequestGeneration(FilePath);
-   assertEquals (expectedToken, obtainedToken);
- }
-
-
  @DisplayName("None Right Bracket")
  @Test
  void NoneRightBracket() throws TokenManagementException{
@@ -79,7 +312,7 @@ public class TokenTest {
 	   });
 	assertEquals (expectedToken, obtainedToken.getMessage());
  }
- 
+
  /*TEST DE DEVICE NAME*/
  
  @DisplayName("None Device Name")
@@ -101,6 +334,7 @@ public class TokenTest {
    String obtainedToken = myManager.TokenRequestGeneration(FilePath);
    assertEquals (expectedToken, obtainedToken);
  }
+
  
  @DisplayName("Valor límite(20) en Divice Name")
  @Test
@@ -110,6 +344,7 @@ public class TokenTest {
    String obtainedToken = myManager.TokenRequestGeneration(FilePath);
    assertEquals (expectedToken, obtainedToken);
  }
+
 
  @DisplayName("Tamaño incorrecto (0) en Divice Name")
  @Test
@@ -174,6 +409,7 @@ public class TokenTest {
 	});
 	assertEquals (expectedToken, obtainedToken.getMessage());
  }
+
  
 
  @DisplayName("Valor de type of device incorrecto(null)")
@@ -284,8 +520,12 @@ public class TokenTest {
   void TearDown() throws Exception {
   }
 
+
   /*
   @Test
+=======
+  /*@Test
+>>>>>>> branch 'EG3' of https://pds.sel.inf.uc3m.es/mcarrero/g50.t6.eg
   void Test() {
     fail("Not yet implemented");
   }*/
