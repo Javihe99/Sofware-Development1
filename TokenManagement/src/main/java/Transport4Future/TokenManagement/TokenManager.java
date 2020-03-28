@@ -86,71 +86,117 @@ public class TokenManager {
 	    } catch (IOException e) {
 	      throw new TokenManagementException("Error: input file could not be closed.");
 	    }
-	    
+	 
 	    JsonObject jsonLicense;
+		String deviceName;
+		String typeOfDevice;
+		String driverVersion;
+	    
 	    String supportEmail;
 	    String serialNumber;
 	    String macAddress;
 	    
 	    /*Lanzamos una excepción desde un punto de vista del formato de JSON, esté todo correcto*/
-	    try {
-	    	
-	    jsonLicense = Json.createReader(new StringReader(fileContents)).readObject();
-	     
-	    }catch(JsonException e) {
-	    
-	    	throw new TokenManagementException("Formato JSON incorrecto");
-	    }
-	    
-	    DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
-	   
-	    
-	
-	      String deviceName = jsonLicense.getString("Device Name");     
-	      String typeOfDevice = jsonLicense.getString("Type of Device");
-	      String driverVersion = jsonLicense.getString("Driver Version");
+		try {
+			
+		jsonLicense = Json.createReader(new StringReader(fileContents)).readObject();
+		 
+		}catch(JsonException e) {
+		
+			throw new TokenManagementException("Formato JSON incorrecto");
+		}
+		
+		DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
+		   
+		    
+		    try {
+			 deviceName = jsonLicense.getString("Device Name");
+		}catch(Exception e) {
+			throw new TokenManagementException("Error: Device Name not found");
+		}
+		
+		if(deviceName.length()>20 || deviceName.length()<1) {
+			throw new TokenManagementException("Error: Device Name size is not correct");
+		}
+			
+		try {
+			typeOfDevice = jsonLicense.getString("Type of Device");
+		}catch(Exception e) {
+			throw new TokenManagementException("Error: type Of Device not found");
+		}
+		
+		if(!(typeOfDevice.equals("Sensor")||typeOfDevice.equals("Actuator"))) {
+			throw new TokenManagementException("Error: type of device is not correct");
+		}
+		
+		try {
+			  driverVersion = jsonLicense.getString("Driver Version");
+		
+		}catch(Exception e) {
+			throw new TokenManagementException("Error: Driver Version not found");
+		}
+		
+		if(driverVersion.length()<2 ||driverVersion.length()>25 ||driverVersion.indexOf(".")==-1) {
+			throw new TokenManagementException("Error: driver version structure not correct");
+		}
+		
+		try{
+			String [] aux = driverVersion.split("\\.");
+			for(int i = 0; i<aux.length; i++) {
+				Integer.parseInt(aux[i]);
+			}
+			
+		} catch(Exception e){
+			
+			throw new TokenManagementException("Error: driver version is not digital");
+		}
+			   		
+
 	      
 	      
-	      /*Lanzamos una excepción si supportEmail no tiene el formato correcto*/
-	      try {
-	      supportEmail = jsonLicense.getString("Support e-mail");
-	      }catch(Exception e){
+		  /*Lanzamos una excepción si supportEmail no tiene el formato correcto*/
+		  try {
+		  supportEmail = jsonLicense.getString("Support e-mail");
+		  }catch(Exception e){
 		    	 throw new TokenManagementException("supportEmail no encontrado");
 		  }
-	      if(supportEmail.matches("\\w+@\\w+\\.[A-Za-z]+$")) {
-	      }else {
-	    	  throw new TokenManagementException("Formato supportEmail incorrecto");
-	      }
-	      
-	      
-	      /*Lanzamos una excepción si SerialNumber no tiene el formato correcto*/    
-	      try {
-	  	  serialNumber = jsonLicense.getString("Serial Number");
-	      }catch(Exception e){
-	    	  throw new TokenManagementException("serialNumber no encontrado");
-	      }
-	      if(serialNumber.matches("^[\\w\\|](\\w*\\-*)+$")) {
-	      }else {
-	    	  throw new TokenManagementException("Formato serialNumber incorrecto");
-	      }
+		  if(supportEmail.matches("\\w+@\\w+\\.[A-Za-z]+$")) {
+		  }else {
+			  throw new TokenManagementException("Formato supportEmail incorrecto");
+		  }
 		  
-	      /*Lanzamos una excepción si macAddress no tiene el formato correcto*/
-	      try {
-	      macAddress = jsonLicense.getString("MAC Address");
-	      }catch(Exception e){
-	    	  throw new TokenManagementException("macAddress no encontrado");
-	      }
-	      if(macAddress.matches("^([A-Z0-9]{2}:?){6}$")) {
-	      }else {
-	    	  throw new TokenManagementException("Formato macAddress incorrecto");
-	      }
+		  
+		  /*Lanzamos una excepción si SerialNumber no tiene el formato correcto*/    
+		  try {
+		  serialNumber = jsonLicense.getString("Serial Number");
+		  }catch(Exception e){
+			  throw new TokenManagementException("serialNumber no encontrado");
+		  }
+		  if(serialNumber.matches("^[\\w\\|](\\w*\\-*)+$")) {
+		  }else {
+			  throw new TokenManagementException("Formato serialNumber incorrecto");
+		  }
+		  
+		  /*Lanzamos una excepción si macAddress no tiene el formato correcto*/
+		  try {
+		  macAddress = jsonLicense.getString("MAC Address");
+		  }catch(Exception e){
+			  throw new TokenManagementException("macAddress no encontrado");
+		  }
+		  if(macAddress.matches("^([A-Z0-9]{2}:?){6}$")) {
+		  }else {
+			  throw new TokenManagementException("Formato macAddress incorrecto");
+		  }
 		      
 
 	      
 	      //Date requestDate = df.parse(jsonLicense.getString("Request Date"));
-	      req = new TokenRequest(deviceName,typeOfDevice,driverVersion,supportEmail, serialNumber, macAddress);
-	    
-
-	    return req;
+	    	req = new TokenRequest(deviceName,typeOfDevice,driverVersion,supportEmail, serialNumber, macAddress);
+	    	
+		  
+		    return req;
+	    	   
+	    }
+	   
 	  }
-}
+
