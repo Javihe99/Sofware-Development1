@@ -11,14 +11,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Date;
-import java.text.DateFormat;
+
 import java.text.SimpleDateFormat;
-import java.util.Locale;
+
 import javax.json.Json;
 import javax.json.JsonException;
 import javax.json.JsonObject;
 
-import com.thoughtworks.qdox.parser.ParseException;
 
 public class TokenManager {
 
@@ -97,7 +96,7 @@ public class TokenManager {
 			throw new TokenManagementException("Formato JSON incorrecto");
 		}
 
-		DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
+		
 
 		try {
 			deviceName = jsonLicense.getString("Device Name");
