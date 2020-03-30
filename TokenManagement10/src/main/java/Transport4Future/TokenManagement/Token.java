@@ -73,7 +73,7 @@ public class Token {
 
 
 	public boolean isGranted (){
-		System.out.println(this.iat);
+
 			if (this.iat < System.currentTimeMillis()) {
 				return true;
 			}else {
@@ -81,7 +81,7 @@ public class Token {
 			}
 	}
 	public boolean isExpired (){
-		System.out.println(this.exp+"$$$$$$$$$$$$$$$"+ System.currentTimeMillis());
+	
 			if (this.exp > System.currentTimeMillis()) {
 				return false;
 			}

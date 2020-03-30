@@ -312,7 +312,7 @@ public class TokenManager {
 		boolean result = false;
 
 		Token tokenFound = myStore.Find(Token);
-		System.out.println("******"+tokenFound+"***********");
+
 		if (tokenFound !=null){
 			result = isValid(tokenFound);
 		}else {
@@ -322,7 +322,7 @@ public class TokenManager {
 		}
 	
 	private boolean isValid (Token tokenFound ){
-		System.out.println(tokenFound.isExpired()+"----"+tokenFound.isGranted());
+
 		if (!tokenFound.isExpired () && tokenFound.isGranted()){
 		return true;
 		}else {
