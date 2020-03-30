@@ -24,11 +24,11 @@ public class RequestTokenTest {
 	   String obtainedToken = myManager.RequestToken(FilePath);
 	   assertEquals (expectedToken, obtainedToken);
 	 }
-	 /*No afecta a ningún nodo*/
+	 /*Afecta al nodo 1, puesto que el fichero no existe*/
 	 @DisplayName("Fichero json inválido")
 	 @Test
 	 void InvJson() throws TokenManagementException{
-	   String FilePath = this.jsonFilesFolder + "InvJson.json";
+	   String FilePath = this.jsonFilesFolder + "asdfadsf.json";
 	   String expectedToken = "Error: input file not found.";
 		TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
 		     myManager.RequestToken(FilePath);
@@ -303,7 +303,7 @@ public class RequestTokenTest {
 		assertEquals (expectedToken, ex.getMessage());
 	 }
 	 
-	
+	/*Todos los nodos terminales*/
 	 @DisplayName("Correct1 Token Generation")
 	 @Test
 	 void CorrectRequestTokenTest1() throws TokenManagementException{

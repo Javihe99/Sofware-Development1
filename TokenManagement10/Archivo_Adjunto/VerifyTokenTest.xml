@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="VerifyTokenTest" project="TokenManagement10" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="Transport4Future.TokenManagement.VerifyTokenTest" time="0.22" displayname="VerifyTokenTest" uniqueid="[engine:junit-jupiter]/[class:Transport4Future.TokenManagement.VerifyTokenTest]">
+    <testcase name="CorrectVerifyTokenTest1" classname="Transport4Future.TokenManagement.VerifyTokenTest" time="0.143" displayname="Verify is true, token found, is granted and is valid" uniqueid="[engine:junit-jupiter]/[class:Transport4Future.TokenManagement.VerifyTokenTest]/[method:CorrectVerifyTokenTest1()]"/>
+    <testcase name="CorrectVerifyTokenTest2" classname="Transport4Future.TokenManagement.VerifyTokenTest" time="0.018" displayname="Verify is false, token found, is not granted and is not valid" uniqueid="[engine:junit-jupiter]/[class:Transport4Future.TokenManagement.VerifyTokenTest]/[method:CorrectVerifyTokenTest2()]"/>
+    <testcase name="CorrectVerifyTokenTest3" classname="Transport4Future.TokenManagement.VerifyTokenTest" time="0.013" displayname="Verify is false, token found, is granted and is not valid" uniqueid="[engine:junit-jupiter]/[class:Transport4Future.TokenManagement.VerifyTokenTest]/[method:CorrectVerifyTokenTest3()]"/>
+    <testcase name="TokenWrongVerifyTest" classname="Transport4Future.TokenManagement.VerifyTokenTest" time="0.023" displayname="token is not found" uniqueid="[engine:junit-jupiter]/[class:Transport4Future.TokenManagement.VerifyTokenTest]/[method:TokenWrongVerifyTest()]"/>
+    <testcase name="CorrectVerifyTokenTest" classname="Transport4Future.TokenManagement.VerifyTokenTest" time="0.023" displayname="Verify is false, token found, is not granted and is not valid" uniqueid="[engine:junit-jupiter]/[class:Transport4Future.TokenManagement.VerifyTokenTest]/[method:CorrectVerifyTokenTest()]"/>
+  </testsuite>
+</testrun>
