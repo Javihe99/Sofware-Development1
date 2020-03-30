@@ -77,7 +77,8 @@ public class TokensStore {
 		Token result=null;
 		this.Load();
 		for(Token token:this.tokensList) {
-			if(token.toString().equals(tokenToFind)) {
+
+			if(token.getTokenValue().equals (tokenToFind)) {
 				result=token;
 			}
 		}

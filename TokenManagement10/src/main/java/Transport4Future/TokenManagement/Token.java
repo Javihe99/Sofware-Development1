@@ -52,7 +52,7 @@ public class Token {
         this.notificationEmail = NotificationEmail;
         this.iat = System.currentTimeMillis();
         this.iat = 1583780309;
-        this.exp = this.iat + 604800000l;
+        this.exp = this.iat + 904800000l;
         this.signature=null;
         this.tokenValue=null;
         
@@ -71,7 +71,9 @@ public class Token {
 		return this.tokenValue;
 	}
 
+
 	public boolean isGranted (){
+		System.out.println(this.iat);
 			if (this.iat < System.currentTimeMillis()) {
 				return true;
 			}else {
@@ -79,6 +81,7 @@ public class Token {
 			}
 	}
 	public boolean isExpired (){
+		System.out.println(this.exp+"$$$$$$$$$$$$$$$"+ System.currentTimeMillis());
 			if (this.exp > System.currentTimeMillis()) {
 				return false;
 			}
@@ -87,7 +90,12 @@ public class Token {
 			}
 	}
 	
-
+	public String toString() {
+		return "Token [\n\\Token Request:" + this.device+ 
+				 ",\n\t\\Notification e-mail:"+this.notificationEmail 
+				 + ",\n\t\\Request Date:"+ this.requestDate+"\n]";
+	}
+	
 			
 	
 	

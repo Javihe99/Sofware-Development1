@@ -20,7 +20,7 @@ public class RequestTokenTest {
 	 @Test
 	 void CorrectRequestTokenTest() throws TokenManagementException{
 	   String FilePath = this.jsonFilesFolder + "Correct.json";
-	   String expectedToken = "WlROaU5qRmhPRE0yWkdRMVlUZ3paVGxsTVRrMVptWXdPV014TkRkak5EWTBaVGd3TkRnNU5ETm1OelpsTkRVMU9UTXdZalUzTVRKa01URmlZelJtTnc9PQ==";
+	   String expectedToken = "c841828006d918e6e685af7f98ee9c37afd5b254c8da9bc9c9151e695e6cef73";
 	   String obtainedToken = myManager.RequestToken(FilePath);
 	   assertEquals (expectedToken, obtainedToken);
 	 }
@@ -246,7 +246,7 @@ public class RequestTokenTest {
 	 void TkDuplicadoValor() throws TokenManagementException{
 		String FilePath = this.jsonFilesFolder + "TkDuplicadoValor.json";
 		
-		String expectedToken = "Mzg1OGYyNmNjMmNiOThjODJiZTZlNmNkZTM3YjlmNTM5YWY1NjBiZGM1OWQzMzdhNDMxNDBhNmY1MDliNTc4NQ==";
+		String expectedToken = "4c1d85c0e5de5ffdb75ab320270a23d8b74554867fcd68bfffe2c06bcbe4c66a";
 		String obtainedToken = myManager.RequestToken(FilePath);
 		   assertEquals (expectedToken, obtainedToken);
 		
@@ -304,5 +304,81 @@ public class RequestTokenTest {
 	 }
 	 
 	
+	 @DisplayName("Correct1 Token Generation")
+	 @Test
+	 void CorrectRequestTokenTest1() throws TokenManagementException{
+	   String FilePath = this.jsonFilesFolder + "Correct1.json";
+	   String expectedToken = "b56f387dc92ee9527b20e651422af40eeaf678ef5481cb64f29dfc994a81f538";
+	   String obtainedToken = myManager.RequestToken(FilePath);
+	   assertEquals (expectedToken, obtainedToken);
+	 }
+	 
+		/*Probar con un solo numero en el apartado de dia. Nodo: 65 y 81*/
+	 @DisplayName("Request Date format")
+	 @Test
+	 void CorrectRequestTokenTest2() throws TokenManagementException{
+	   String FilePath = this.jsonFilesFolder + "RequestDateDiaImpar.json";
+	   String expectedToken = "c841828006d918e6e685af7f98ee9c37afd5b254c8da9bc9c9151e695e6cef73";
+	   String obtainedToken = myManager.RequestToken(FilePath);
+	   assertEquals (expectedToken, obtainedToken);}
+	 
+	 /*Unión con guión en vez de barra en Request Date. Nodos afectados: 66 68 112 114*/
+	 @DisplayName("Request Date format")
+	 @Test
+	 void RequestDateTest() throws TokenManagementException{
+	   String FilePath = this.jsonFilesFolder + "RequestDateFormat.json";
+	   String expectedToken = "Error:Request Date";
+	   TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+		     myManager.RequestToken(FilePath);
+		   });
+		   assertEquals(expectedToken,ex.getMessage());}
+	
+	 /*Falta la  parte de hora:minutos:segundo. Nodos afectados: 70,71,72,73,74,75,85,86,87,88,89,90  */
+	@DisplayName("Request Date sin time")
+	@Test
+	void RequestDateTest1() throws TokenManagementException{
+	  String FilePath = this.jsonFilesFolder + "RequestDateNoneTime.json";
+	  String expectedToken = "Error:Request Date";
+	  TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+		     myManager.RequestToken(FilePath);
+		   });
+		   assertEquals(expectedToken,ex.getMessage());}
+	
+	/*Omisión del campo de Request Date y de la última coma. 
+	 * Nodos afectados:9,10,19,20,21,22,37,38,39,40,41,42,43,55,56,57,58,59,65,66,67,
+	 * 68,69,70,71,72,73,74,75,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98*/
+	@DisplayName("No Request Date")
+	@Test
+	void RequestDateNoneTest() throws TokenManagementException{
+		  String FilePath = this.jsonFilesFolder + "RequestDateTestNone.json";
+		  String expectedToken = "Error: could not find Request Date";
+		  TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+			     myManager.RequestToken(FilePath);
+			   });
+			   assertEquals(expectedToken,ex.getMessage());}
+	
+	/*Omisión de : del campo de Request Date
+	 * Nodos afectados: 21,40*/
+	@DisplayName("No : en Request Date")
+	@Test
+	void RequestDateTest2() throws TokenManagementException{
+		  String FilePath = this.jsonFilesFolder + "RequestDateNoneIgualdad.json";
+		  String expectedToken = "Formato JSON incorrecto";
+		  TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+			     myManager.RequestToken(FilePath);
+			   });
+			   assertEquals(expectedToken,ex.getMessage());}
+	
+	/*Dublicado de " en campo de Request Date
+	 * Nodos afectados:43 y 59*/
+	@DisplayName("Duplicado Request Date")
+	@Test
+	void RequestDateTest3() throws TokenManagementException{
+		  String FilePath = this.jsonFilesFolder + "RequestDateDuplicadoComilla.json";
+		  String expectedToken = "Formato JSON incorrecto";
+		  TokenManagementException ex= Assertions.assertThrows(TokenManagementException.class,()-> {
+			     myManager.RequestToken(FilePath);
+			   });
+			   assertEquals(expectedToken,ex.getMessage());}
 	
 }

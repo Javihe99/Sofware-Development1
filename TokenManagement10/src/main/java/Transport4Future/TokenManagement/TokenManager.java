@@ -73,6 +73,10 @@ public class TokenManager {
 		} catch (IOException e) {
 			throw new TokenManagementException("Error: input file could not be closed.");
 		}
+		
+		if(fileContents.length()==0) {
+			throw new TokenManagementException("Error: input file empty.");
+		}
 
 		JsonObject jsonLicense;
 		String deviceName;
@@ -194,7 +198,7 @@ public class TokenManager {
 		// Beware the hex length. If MD5 -> 32:"%032x", but for instance, in SHA-256 it should be "%064x"
 		String hex = String.format("%64x", new BigInteger(1, digest));
 		
-		return encodeString(hex);                                  
+		return hex;                                  
 		}
 	private String encodeString(String stringToEncode) throws TokenManagementException{ 
 
@@ -289,29 +293,36 @@ public class TokenManager {
  
 
 		myToken = new Token(tokenRequest, date1, email);
+		
+		
 		String result=CodeHash256(myToken);
+	
 		myToken.setSignature(result);
-		result=encodeString(result);
 		
-		
+		myToken.setTokenValue(encodeString(result));
+
 		TokensStore myStore = new TokensStore(); 
 		myStore.Add(myToken);
-		 
-		return result;
+		
+		return myToken.getSignature();
 	}
 	
 	public boolean VerifyToken (String Token) throws TokenManagementException{ 
 		TokensStore myStore = new TokensStore ();
 		boolean result = false;
 
-		Token tokenFound = myStore.Find(Token );
-
+		Token tokenFound = myStore.Find(Token);
+		System.out.println("******"+tokenFound+"***********");
 		if (tokenFound !=null){
 			result = isValid(tokenFound);
+		}else {
+			throw new TokenManagementException("Error: Token not found");
 		}
 		return result;
 		}
+	
 	private boolean isValid (Token tokenFound ){
+		System.out.println(tokenFound.isExpired()+"----"+tokenFound.isGranted());
 		if (!tokenFound.isExpired () && tokenFound.isGranted()){
 		return true;
 		}else {

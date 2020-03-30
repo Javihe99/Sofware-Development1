@@ -293,7 +293,7 @@ public class TokenTest {
  @Test
  void BlankTestfileTest() throws TokenManagementException{
 	String FilePath = this.jsonFilesFolder + "BlankFile.json";
-	String expectedToken = "Error: input file could not be read.";
+	String expectedToken = "Error: input file empty.";
 	TokenManagementException obtainedToken = Assertions.assertThrows(TokenManagementException.class,()-> {
 		myManager.TokenRequestGeneration(FilePath);
 	   });
@@ -321,7 +321,7 @@ public class TokenTest {
  @Test
  void DiviceNameSize1() throws TokenManagementException{
    String FilePath = this.jsonFilesFolder + "DiviceNameSize1.json";
-   String expectedToken = "687187f23f5759fc4b83e1335c2afc66";
+   String expectedToken = "57ee370a63223e0e50ef518c7991c6f7";
    String obtainedToken = myManager.TokenRequestGeneration(FilePath);
    assertEquals (expectedToken, obtainedToken);
  }
@@ -466,7 +466,7 @@ public class TokenTest {
  @DisplayName("Solo existe un punto sin dígitos")
  @Test
  void DriverVersionPoint() throws TokenManagementException{
-   String FilePath = this.jsonFilesFolder + "DiviceNameSize1.json";
+   String FilePath = this.jsonFilesFolder + "DriverVersionNoDigit.json";
    String expectedToken = "Error: driver version structure not correct";
    TokenManagementException obtainedToken = Assertions.assertThrows(TokenManagementException.class,()-> {
 		myManager.TokenRequestGeneration(FilePath);
@@ -477,7 +477,7 @@ public class TokenTest {
  @DisplayName("No existe punto")
  @Test
  void DriverVersionNonePoint() throws TokenManagementException{
-   String FilePath = this.jsonFilesFolder + "TypeOfDeviceA.json";
+   String FilePath = this.jsonFilesFolder + "DriverVersionNoPoint.json";
    String expectedToken = "Error: driver version structure not correct";
    TokenManagementException obtainedToken = Assertions.assertThrows(TokenManagementException.class,()-> {
 		myManager.TokenRequestGeneration(FilePath);
@@ -488,8 +488,8 @@ public class TokenTest {
  @DisplayName("Valor límite: entrada de 1número y 1 punto")
  @Test
  void DriverVersion() throws TokenManagementException{
-   String FilePath = this.jsonFilesFolder + "DriverVersion.json";
-   String expectedToken = " 33947ecae44207f7d651ef1c829fb62";
+   String FilePath = this.jsonFilesFolder + "DiviceNameSize1.json";
+   String expectedToken = "57ee370a63223e0e50ef518c7991c6f7";
    String obtainedToken = myManager.TokenRequestGeneration(FilePath);
    assertEquals (expectedToken, obtainedToken);
  }
