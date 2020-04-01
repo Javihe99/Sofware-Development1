@@ -13,7 +13,11 @@ public class VerifyTokenTest {
 		myManager =new TokenManager();
 	}
 	
-	/*Prueba1: fecha de emision y expiración mayor que el actual. Prueba que en el bucle entra una vez*/
+	/* Caso de Prueba: Prueba1: fecha de emision y expiración mayor que el actual
+	* Técnica de prueba: Prueba que en el bucle entra una vez
+	* Resultado Esperado: false
+	*/ 
+	
 	 @DisplayName("Verify is false, token found, is not granted and is not valid")
 	 @Test
 	 void CorrectVerifyTokenTest() throws TokenManagementException{
@@ -23,7 +27,10 @@ public class VerifyTokenTest {
 	   assertEquals (expected, obtained);
 	 }
 	
-	/*Prueba2: fecha de emision menor que el actual pero la de expiración es mayor. También comprobamos que pasamos dos veces por el bucle*/
+	 /* Caso de Prueba: Prueba2: fecha de emision menor que el actual pero la de expiración es mayor.
+		* Técnica de prueba: Entra dos veces en el bucle
+		* Resultado Esperado: true
+		*/ 
 	 @DisplayName("Verify is true, token found, is granted and is valid")
 	 @Test
 	 void CorrectVerifyTokenTest1() throws TokenManagementException{
@@ -33,7 +40,10 @@ public class VerifyTokenTest {
 	   assertEquals (expected, obtained);
 	 }
 	 
-	/*Prueba3: ha expirado y fecha de emisión mayor a la actual. Aquí tambien hacemos una comprobación con el bucle para recorrerlo por el centro*/
+	 /* Caso de Prueba:Prueba3: ha expirado y fecha de emisión mayor a la actual.
+		* Técnica de prueba: Entra cuatro veces en el bucle
+		* Resultado Esperado: false
+		*/ 
 	 @DisplayName("Verify is false, token found, is not granted and is not valid")
 	 @Test
 	 void CorrectVerifyTokenTest2() throws TokenManagementException{
@@ -43,7 +53,11 @@ public class VerifyTokenTest {
 	   assertEquals (expected, obtained);
 	 }
 	 
-	/*Prueba4: ha expirado y fecha de emisión menor a la actual. Comprobamos que en el bucle se entra varias veces*/
+	 
+	 /* Caso de Prueba:Prueba4: ha expirado y fecha de emisión menor a la actual.
+		* Técnica de prueba: Entra varias veces en el bucle
+		* Resultado Esperado: false
+		*/ 
 	 @DisplayName("Verify is false, token found, is granted and is not valid")
 	 @Test
 	 void CorrectVerifyTokenTest3() throws TokenManagementException{
@@ -53,7 +67,11 @@ public class VerifyTokenTest {
 	   assertEquals (expected, obtained);
 	 }
 	 
-	 /*Prueba5: no existe ese token. Por lo que no entra ninguna vez por el bucle.*/
+	 /* Caso de Prueba: Prueba5: no existe ese token
+		* Técnica de prueba: No entra por el bucle
+		* Resultado Esperado: false
+		*/ 
+	 
 	 @DisplayName("token is not found")
 	 @Test
 	 void TokenWrongVerifyTest() throws TokenManagementException{
