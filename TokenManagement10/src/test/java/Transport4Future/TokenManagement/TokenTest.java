@@ -23,7 +23,11 @@ public class TokenTest {
    myManager = new TokenManager();
  }
  
- /*El archivo no existe*/
+ /* Caso de Prueba: "No existe archivo"
+ * Clase de Equivalencia o Valor Límite Asociado: <Valor>
+ * Técnica de prueba: <Clases de Equivalencia | Valor Límite>
+ * Resultado Esperado: No existe el archivo JSON
+ */ 
  @DisplayName ("File is missing")
  @Test
  void FileIsMissingTest() throws TokenManagementException{
