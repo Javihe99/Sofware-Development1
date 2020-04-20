@@ -1,4 +1,112 @@
 -------------------------------------------------------------------------------
 Test set: Transport4Future.TokenManagement.TokenRequestGenerationTest
 -------------------------------------------------------------------------------
-Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.346 s - in Transport4Future.TokenManagement.TokenRequestGenerationTest
+Tests run: 30, Failures: 25, Errors: 2, Skipped: 0, Time elapsed: 0.27 s <<< FAILURE! - in Transport4Future.TokenManagement.TokenRequestGenerationTest
+ValidTestCases{String, String}[1]  Time elapsed: 0.053 s  <<< ERROR!
+Transport4Future.TokenManagement.TokenManagementException: Error: JSON object cannot be created due to incorrect representation
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.ValidTestCases(TokenRequestGenerationTest.java:32)
+
+ValidTestCases{String, String}[2]  Time elapsed: 0 s  <<< ERROR!
+Transport4Future.TokenManagement.TokenManagementException: Error: JSON object cannot be created due to incorrect representation
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.ValidTestCases(TokenRequestGenerationTest.java:32)
+
+InvalidTestCases{String, String}[1]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid String length for device name.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[2]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[3]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[4]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[5]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[6]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[7]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[8]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[9]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[10]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[11]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[12]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[13]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid input data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[14]  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid type of sensor.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[15]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid String length for driver version.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[16]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid E-mail data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[17]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid String length for serial number.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[18]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid MAC Address data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[19]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid String length for device name.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[20]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid type of sensor.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[21]  Time elapsed: 0.031 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid String length for driver version.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[22]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid String length for driver version.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[23]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid E-mail data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[24]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid String length for serial number.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+
+InvalidTestCases{String, String}[25]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Error: invalid MAC Address data in JSON structure.> but was: <Error: JSON object cannot be created due to incorrect representation>
+	at Transport4Future.TokenManagement.TokenRequestGenerationTest.InvalidTestCases(TokenRequestGenerationTest.java:25)
+

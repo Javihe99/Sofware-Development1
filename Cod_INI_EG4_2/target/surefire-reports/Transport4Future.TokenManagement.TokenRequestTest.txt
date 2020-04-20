@@ -1,4 +1,700 @@
 -------------------------------------------------------------------------------
 Test set: Transport4Future.TokenManagement.TokenRequestTest
 -------------------------------------------------------------------------------
-Tests run: 71, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s - in Transport4Future.TokenManagement.TokenRequestTest
+Tests run: 71, Failures: 69, Errors: 1, Skipped: 0, Time elapsed: 0.317 s <<< FAILURE! - in Transport4Future.TokenManagement.TokenRequestTest
+inicio  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.inicio(TokenRequestTest.java:28)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$0(TokenRequestTest.java:29)
+	at Transport4Future.TokenManagement.TokenRequestTest.inicio(TokenRequestTest.java:28)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$0(TokenRequestTest.java:29)
+	at Transport4Future.TokenManagement.TokenRequestTest.inicio(TokenRequestTest.java:28)
+
+ValidTestCases{String, String}[1]  Time elapsed: 0 s  <<< ERROR!
+javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.ValidTestCases(TokenRequestTest.java:49)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.ValidTestCases(TokenRequestTest.java:49)
+
+InvalidTestCases{String, String}[2]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[3]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[4]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[5]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[6]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[7]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[8]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[9]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[10]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[11]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[12]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[13]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[14]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[15]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[16]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[17]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[18]  Time elapsed: 0.015 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[19]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[20]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[21]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[22]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[23]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[24]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[25]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[26]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[27]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[28]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[29]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[30]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[31]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[32]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[33]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[34]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[35]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[36]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[37]  Time elapsed: 0.015 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[38]  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[39]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[40]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[41]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[42]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[43]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[44]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[45]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[46]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[47]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[48]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[49]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[50]  Time elapsed: 0.015 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[51]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[52]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[53]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[54]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[55]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[56]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[57]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[58]  Time elapsed: 0.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[59]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[60]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[61]  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[62]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[63]  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[64]  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[65]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[66]  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[67]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[68]  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
+InvalidTestCases{String, String}[69]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Transport4Future.TokenManagement.TokenManagementException> but was: <javax.json.JsonException>
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
+	at Transport4Future.TokenManagement.TokenRequestTest.lambda$1(TokenRequestTest.java:40)
+	at Transport4Future.TokenManagement.TokenRequestTest.InvalidTestCases(TokenRequestTest.java:39)
+
