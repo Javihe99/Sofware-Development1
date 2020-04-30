@@ -70,7 +70,7 @@ public class TokenManager implements ITokenManagement {
 	public String TokenRequestGeneration (String InputFile) throws TokenManagementException{
 		TokenRequest req = null;
 
-		String fileContents = "";
+
 		String deviceName = "";
 		String typeOfDevice = "";
 		String driverVersion = "";
@@ -78,32 +78,7 @@ public class TokenManager implements ITokenManagement {
 		String serialNumber = "";
 		String macAddress = "";			
 
-		BufferedReader reader;
-		try {
-			reader = new BufferedReader(new FileReader(InputFile));
-		} catch (FileNotFoundException e) {
-			throw new TokenManagementException("Error: input file not found.");
-		}
-		String line;
-		try {
-			while ((line = reader.readLine()) != null) {
-				fileContents += line;
-			}
-		} catch (IOException e) {
-			throw new TokenManagementException("Error: input file could not be accessed.");
-		}
-		try {
-			reader.close();
-		} catch (IOException e) {
-			throw new TokenManagementException("Error: input file could not be closed.");
-		}
-
-		JsonObject jsonLicense = null;
-		try(StringReader sr = new StringReader(fileContents)) {
-			jsonLicense = Json.createReader(sr).readObject();
-		} catch(Exception e) {
-			throw new TokenManagementException("Error: JSON object cannot be created due to incorrect representation");
-		}
+		JsonObject jsonLicense = parseJSONFile(InputFile);
 		
 		try {			
 			deviceName = jsonLicense.getString("Device Name");
@@ -174,6 +149,37 @@ public class TokenManager implements ITokenManagement {
 		return hex;
 	}
 
+	private JsonObject parseJSONFile(String InputFile) throws TokenManagementException {
+		BufferedReader reader;
+		String fileContents = "";
+		try {
+			reader = new BufferedReader(new FileReader(InputFile));
+		} catch (FileNotFoundException e) {
+			throw new TokenManagementException("Error: input file not found.");
+		}
+		String line;
+		try {
+			while ((line = reader.readLine()) != null) {
+				fileContents += line;
+			}
+		} catch (IOException e) {
+			throw new TokenManagementException("Error: input file could not be accessed.");
+		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			throw new TokenManagementException("Error: input file could not be closed.");
+		}
+
+		JsonObject jsonLicense = null;
+		try(StringReader sr = new StringReader(fileContents)) {
+			jsonLicense = Json.createReader(sr).readObject();
+		} catch(Exception e) {
+			throw new TokenManagementException("Error: JSON object cannot be created due to incorrect representation");
+		}
+		return jsonLicense;
+	}
+
 	private void checkTokenRequestInformationFormat(Token TokenToVerify) throws TokenManagementException {
         
 		// Length check for device 
@@ -219,12 +225,13 @@ public class TokenManager implements ITokenManagement {
 	public String RequestToken (String InputFile) throws TokenManagementException{
 		Token myToken = null;
 		String fileContents = "";
-		BufferedReader reader;
+
 		
 		String tokenRquest = "";
 		String email = "";
-		String date = "";			
+		String date = "";	
 		
+		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(InputFile));
 		} catch (FileNotFoundException e) {
