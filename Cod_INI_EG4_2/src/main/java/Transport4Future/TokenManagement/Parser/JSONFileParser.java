@@ -1,4 +1,4 @@
-package Transport4Future.TokenManagement;
+package Transport4Future.TokenManagement.Parser;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,6 +8,8 @@ import java.io.StringReader;
 
 import javax.json.Json;
 import javax.json.JsonObject;
+
+import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class JSONFileParser {
 	public JsonObject parseJSONFile(String InputFile) throws TokenManagementException {

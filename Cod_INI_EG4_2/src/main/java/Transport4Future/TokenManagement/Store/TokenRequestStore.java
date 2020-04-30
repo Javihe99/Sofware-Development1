@@ -1,4 +1,4 @@
-package Transport4Future.TokenManagement;
+package Transport4Future.TokenManagement.Store;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -8,6 +8,9 @@ import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import Transport4Future.TokenManagement.Data.TokenRequest;
+import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class TokenRequestStore {
 

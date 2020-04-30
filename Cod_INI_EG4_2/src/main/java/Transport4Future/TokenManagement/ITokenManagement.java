@@ -1,5 +1,7 @@
 package Transport4Future.TokenManagement;
 
+import Transport4Future.TokenManagement.Exception.TokenManagementException;
+
 public interface ITokenManagement {
 	
 	String TokenRequestGeneration (String InputFile) throws TokenManagementException;
