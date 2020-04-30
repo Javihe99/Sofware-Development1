@@ -35,55 +35,10 @@ public class TokenManager implements ITokenManagement {
 		JsonObject jsonLicense = myFile.parseJSONFile(InputFile);	
 		TokenRequest req = createTokenRequest(jsonLicense);
 		String hex = generateHashMD5(req);
-		HashMap<String, TokenRequest> clonedMap = loadTokenRequestToMemory();
-        storeTokenRequest(req, hex, clonedMap);
+		TokenRequestStore myStore = new TokenRequestStore();
+        myStore.storeTokenRequest(req, hex);
 		//Devolver el hash
 		return hex;
-	}
-
-	private void storeTokenRequest(TokenRequest req, String hex, HashMap<String, TokenRequest> clonedMap)
-			throws TokenManagementException {
-		if (clonedMap==null) {
-        	clonedMap = new HashMap<String, TokenRequest>();
-        	clonedMap.put (hex, req);	        	
-        }
-        else if (!clonedMap.containsKey(hex)){
-        	clonedMap.put (hex, req);
-        }
-
-		Gson gson = new Gson();
-		// Guardar el Tokens Requests Store actualizado
-		String jsonString = gson.toJson(clonedMap);
-        FileWriter fileWriter;
-    	String storePath = System.getProperty("user.dir") + "/Store/tokenRequestsStore.json";
-		try {
-			fileWriter = new FileWriter(storePath);
-	        fileWriter.write(jsonString);
-	        fileWriter.close();
-		} catch (IOException e) {
-			throw new TokenManagementException("Error: Unable to save a new token in the internal licenses store");
-		}
-	}
-
-	private HashMap<String, TokenRequest> loadTokenRequestToMemory() {
-		//Generar un HashMap para guardar los objetos
-
-		HashMap<String, TokenRequest> clonedMap;
-
-		//Tengo que cargar el almacen de tokens request en memoria y añadir el nuevo si no existe
-		try {
-			Gson gson = new Gson();
-			String jsonString;
-			String storePath = System.getProperty("user.dir") + "/Store/tokenRequestsStore.json";
-			
-			Object object = gson.fromJson(new FileReader(storePath), Object.class);
-			jsonString = gson.toJson(object);	
-	        Type type = new TypeToken<HashMap<String, TokenRequest>>(){}.getType();
-	        clonedMap = gson.fromJson(jsonString, type);
-		} catch (Exception e) {
-			clonedMap=null;
-		}
-		return clonedMap;
 	}
 
 	private String generateHashMD5(TokenRequest req) throws TokenManagementException {
@@ -147,8 +102,6 @@ public class TokenManager implements ITokenManagement {
 		return req;
 	}
 
-	
-	
 	
 	public String RequestToken (String InputFile) throws TokenManagementException{
 
