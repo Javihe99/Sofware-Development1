@@ -224,40 +224,12 @@ public class TokenManager implements ITokenManagement {
 	
 	public String RequestToken (String InputFile) throws TokenManagementException{
 		Token myToken = null;
-		String fileContents = "";
-
 		
 		String tokenRquest = "";
 		String email = "";
 		String date = "";	
 		
-		BufferedReader reader;
-		try {
-			reader = new BufferedReader(new FileReader(InputFile));
-		} catch (FileNotFoundException e) {
-			throw new TokenManagementException("Error: input file not found.");
-		}
-		String line;
-		try {
-			while ((line = reader.readLine()) != null) {
-				fileContents += line;
-			}
-		} catch (IOException e) {
-			throw new TokenManagementException("Error: input file could not be accessed.");
-		}
-		try {
-			reader.close();
-		} catch (IOException e) {
-			throw new TokenManagementException("Error: input file could not be closed.");
-		}
-
-		// Transform the String with the file contents into a JSON object (in memory).
-		JsonObject jsonLicense = null;
-		try {
-			jsonLicense = Json.createReader(new StringReader(fileContents)).readObject();	
-		}catch (JsonParsingException ex) {
-			throw new TokenManagementException("Error: JSON object cannot be created due to incorrect representation");
-		}
+		JsonObject jsonLicense = parseJSONFile(InputFile);
 		
 		try {			
 			tokenRquest = jsonLicense.getString("Token Request");
