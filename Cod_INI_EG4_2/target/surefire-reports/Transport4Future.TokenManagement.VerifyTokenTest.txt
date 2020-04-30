@@ -1,28 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: Transport4Future.TokenManagement.VerifyTokenTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.172 s <<< FAILURE! - in Transport4Future.TokenManagement.VerifyTokenTest
-VerifyValidToken  Time elapsed: 0 s  <<< ERROR!
-javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
-	at Transport4Future.TokenManagement.VerifyTokenTest.insertFirstToken(VerifyTokenTest.java:36)
-	at Transport4Future.TokenManagement.VerifyTokenTest.VerifyValidToken(VerifyTokenTest.java:85)
-Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
-	at Transport4Future.TokenManagement.VerifyTokenTest.insertFirstToken(VerifyTokenTest.java:36)
-	at Transport4Future.TokenManagement.VerifyTokenTest.VerifyValidToken(VerifyTokenTest.java:85)
-
-VerifyTokenCorrectTest  Time elapsed: 0 s  <<< ERROR!
-javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
-	at Transport4Future.TokenManagement.VerifyTokenTest.insertFirstToken(VerifyTokenTest.java:36)
-	at Transport4Future.TokenManagement.VerifyTokenTest.VerifyTokenCorrectTest(VerifyTokenTest.java:65)
-Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
-	at Transport4Future.TokenManagement.VerifyTokenTest.insertFirstToken(VerifyTokenTest.java:36)
-	at Transport4Future.TokenManagement.VerifyTokenTest.VerifyTokenCorrectTest(VerifyTokenTest.java:65)
-
-VerifyTokenNonExistingToken  Time elapsed: 0.01 s  <<< ERROR!
-javax.json.JsonException: Provider org.glassfish.json.JsonProviderImpl not found
-	at Transport4Future.TokenManagement.VerifyTokenTest.insertFirstToken(VerifyTokenTest.java:36)
-	at Transport4Future.TokenManagement.VerifyTokenTest.VerifyTokenNonExistingToken(VerifyTokenTest.java:56)
-Caused by: java.lang.ClassNotFoundException: org.glassfish.json.JsonProviderImpl
-	at Transport4Future.TokenManagement.VerifyTokenTest.insertFirstToken(VerifyTokenTest.java:36)
-	at Transport4Future.TokenManagement.VerifyTokenTest.VerifyTokenNonExistingToken(VerifyTokenTest.java:56)
-
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in Transport4Future.TokenManagement.VerifyTokenTest
