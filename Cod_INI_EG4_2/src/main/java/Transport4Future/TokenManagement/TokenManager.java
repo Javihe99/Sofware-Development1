@@ -70,11 +70,62 @@ public class TokenManager implements ITokenManagement {
 	public String TokenRequestGeneration (String InputFile) throws TokenManagementException{
 		TokenRequest req = null;
 		JsonObject jsonLicense = parseJSONFile(InputFile);	
-
 		req = createTokenRequest(jsonLicense);
-		
 		checkInitialTokenInformationFormat(req);
-		
+		String hex = generateHashMD5(req);
+		HashMap<String, TokenRequest> clonedMap = loadTokenRequestToMemory();
+        storeTokenRequest(req, hex, clonedMap);
+
+		//Devolver el hash
+		return hex;
+	}
+
+	private void storeTokenRequest(TokenRequest req, String hex, HashMap<String, TokenRequest> clonedMap)
+			throws TokenManagementException {
+		if (clonedMap==null) {
+        	clonedMap = new HashMap<String, TokenRequest>();
+        	clonedMap.put (hex, req);	        	
+        }
+        else if (!clonedMap.containsKey(hex)){
+        	clonedMap.put (hex, req);
+        }
+
+		Gson gson = new Gson();
+		// Guardar el Tokens Requests Store actualizado
+		String jsonString = gson.toJson(clonedMap);
+        FileWriter fileWriter;
+    	String storePath = System.getProperty("user.dir") + "/Store/tokenRequestsStore.json";
+		try {
+			fileWriter = new FileWriter(storePath);
+	        fileWriter.write(jsonString);
+	        fileWriter.close();
+		} catch (IOException e) {
+			throw new TokenManagementException("Error: Unable to save a new token in the internal licenses store");
+		}
+	}
+
+	private HashMap<String, TokenRequest> loadTokenRequestToMemory() {
+		//Generar un HashMap para guardar los objetos
+
+		HashMap<String, TokenRequest> clonedMap;
+
+		//Tengo que cargar el almacen de tokens request en memoria y añadir el nuevo si no existe
+		try {
+			Gson gson = new Gson();
+			String jsonString;
+			String storePath = System.getProperty("user.dir") + "/Store/tokenRequestsStore.json";
+			
+			Object object = gson.fromJson(new FileReader(storePath), Object.class);
+			jsonString = gson.toJson(object);	
+	        Type type = new TypeToken<HashMap<String, TokenRequest>>(){}.getType();
+	        clonedMap = gson.fromJson(jsonString, type);
+		} catch (Exception e) {
+			clonedMap=null;
+		}
+		return clonedMap;
+	}
+
+	private String generateHashMD5(TokenRequest req) throws TokenManagementException {
 		MessageDigest md;
 		try {
 			md = MessageDigest.getInstance("MD5");
@@ -89,43 +140,6 @@ public class TokenManager implements ITokenManagement {
 
 		// Beware the hex length. If MD5 -> 32:"%032x", but for instance, in SHA-256 it should be "%064x" 
 		String hex = String.format("%32x", new BigInteger(1, digest));
-		
-		//Generar un HashMap para guardar los objetos
-		Gson gson = new Gson();
-		String jsonString;
-		HashMap<String, TokenRequest> clonedMap;
-		String storePath = System.getProperty("user.dir") + "/Store/tokenRequestsStore.json";
-
-		//Tengo que cargar el almacen de tokens request en memoria y añadir el nuevo si no existe
-		try {
-			Object object = gson.fromJson(new FileReader(storePath), Object.class);
-			jsonString = gson.toJson(object);	
-	        Type type = new TypeToken<HashMap<String, TokenRequest>>(){}.getType();
-	        clonedMap = gson.fromJson(jsonString, type);
-		} catch (Exception e) {
-			clonedMap=null;
-		}
-        if (clonedMap==null) {
-        	clonedMap = new HashMap ();
-        	clonedMap.put (hex, req);	        	
-        }
-        else if (!clonedMap.containsKey(hex)){
-        	clonedMap.put (hex, req);
-        }
-
-		
-		// Guardar el Tokens Requests Store actualizado
-		jsonString = gson.toJson(clonedMap);
-        FileWriter fileWriter;
-		try {
-			fileWriter = new FileWriter(storePath);
-	        fileWriter.write(jsonString);
-	        fileWriter.close();
-		} catch (IOException e) {
-			throw new TokenManagementException("Error: Unable to save a new token in the internal licenses store");
-		}
-
-		//Devolver el hash
 		return hex;
 	}
 
@@ -235,6 +249,21 @@ public class TokenManager implements ITokenManagement {
 		checkTokenRequestInformationFormat(myToken);
 		
 		String dataToSign =myToken.getHeader() + myToken.getPayload();
+		String signature = generateHashSHA256(dataToSign);
+
+		myToken.setSignature(signature);
+		
+		String stringToEncode = myToken.getHeader() + myToken.getPayload() + myToken.getSignature();
+		String encodedString = Base64.getUrlEncoder().encodeToString(stringToEncode.getBytes());
+		myToken.setTokenValue(encodedString);
+		
+		TokensStore myStore = new TokensStore ();
+		myStore.Add(myToken);
+		
+		return myToken.getTokenValue();
+	}
+
+	private String generateHashSHA256(String dataToSign) throws TokenManagementException {
 		MessageDigest md;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
@@ -247,17 +276,7 @@ public class TokenManager implements ITokenManagement {
 
 		// Beware the hex length. If MD5 -> 32:"%032x", but for instance, in SHA-256 it should be "%064x"
 		String signature = String.format("%064x", new BigInteger(1, digest));
-
-		myToken.setSignature(signature);
-		
-		String stringToEncode = myToken.getHeader() + myToken.getPayload() + myToken.getSignature();
-		String encodedString = Base64.getUrlEncoder().encodeToString(stringToEncode.getBytes());
-		myToken.setTokenValue(encodedString);
-		
-		TokensStore myStore = new TokensStore ();
-		myStore.Add(myToken);
-		
-		return myToken.getTokenValue();
+		return signature;
 	}
 
 	private Token createRequestToken(JsonObject jsonLicense) throws TokenManagementException {
