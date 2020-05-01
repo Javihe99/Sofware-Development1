@@ -10,30 +10,17 @@ import javax.json.Json;
 import javax.json.JsonObject;
 
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
+import Transport4Future.TokenManagement.Utils.TextReader;
 
 public class JSONFileParser {
 	public JsonObject parseJSONFile(String InputFile) throws TokenManagementException {
-		BufferedReader reader;
-		String fileContents = "";
-		try {
-			reader = new BufferedReader(new FileReader(InputFile));
-		} catch (FileNotFoundException e) {
-			throw new TokenManagementException("Error: input file not found.");
-		}
-		String line;
-		try {
-			while ((line = reader.readLine()) != null) {
-				fileContents += line;
-			}
-		} catch (IOException e) {
-			throw new TokenManagementException("Error: input file could not be accessed.");
-		}
-		try {
-			reader.close();
-		} catch (IOException e) {
-			throw new TokenManagementException("Error: input file could not be closed.");
-		}
+		TextReader myReader=new TextReader();
+		String fileContents = myReader.getFile(InputFile);
 
+		return parseJsonFromString(fileContents);
+	}
+
+	private JsonObject parseJsonFromString(String fileContents) throws TokenManagementException {
 		JsonObject jsonLicense = null;
 		try(StringReader sr = new StringReader(fileContents)) {
 			jsonLicense = Json.createReader(sr).readObject();
@@ -42,6 +29,8 @@ public class JSONFileParser {
 		}
 		return jsonLicense;
 	}
+
+	
 	
 
 }
