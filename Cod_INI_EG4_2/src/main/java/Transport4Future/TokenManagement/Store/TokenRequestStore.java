@@ -48,9 +48,8 @@ public class TokenRequestStore {
 		try {
 			Gson gson = new Gson();
 			String jsonString;
-			String storePath = STORE_PATH;
 			
-			Object object = gson.fromJson(new FileReader(storePath), Object.class);
+			Object object = gson.fromJson(new FileReader(STORE_PATH), Object.class);
 			jsonString = gson.toJson(object);	
 	        Type type = new TypeToken<HashMap<String, TokenRequest>>(){}.getType();
 	        clonedMap = gson.fromJson(jsonString, type);
