@@ -9,7 +9,7 @@ public class TokenRequest {
 	private DeviceName deviceName;
 	private TypeOfDevice typeOfDevice;
 	private DriverVersion driverVersion;
-	private SupportEmail supportEMail;
+	private Email supportEMail;
 	private SerialNumber serialNumber;
 	private MacAddress macAddress;
 		
@@ -17,7 +17,7 @@ public class TokenRequest {
 		this.deviceName = new DeviceName(deviceName);
 		this.typeOfDevice = new TypeOfDevice(typeOfDevice);
 		this.driverVersion = new DriverVersion(driverVersion);
-		this.supportEMail = new SupportEmail(supportEMail);
+		this.supportEMail = new Email(supportEMail);
 		this.serialNumber = new SerialNumber(serialNumber);
 		this.macAddress = new MacAddress(macAddress);
 	
