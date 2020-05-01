@@ -73,8 +73,8 @@ public class TokenManager implements ITokenManagement {
 			throw new TokenManagementException("Error: invalid input data in JSON structure.");
 		}
 
-		req = new TokenRequest(deviceName, typeOfDevice, driverVersion, supportEMail, serialNumber, macAddress);
-		return req;
+		
+		return new TokenRequest(deviceName, typeOfDevice, driverVersion, supportEMail, serialNumber, macAddress);
 	}
 
 	
@@ -116,8 +116,8 @@ public class TokenManager implements ITokenManagement {
 			throw new TokenManagementException("Error: invalid input data in JSON structure.");
 		}
 
-		myToken = new Token (tokenRquest, date, email);
-		return myToken;
+	 
+		return new Token (tokenRquest, date, email);
 	}
 
 	private boolean isValid (Token tokenFound) {
@@ -136,7 +136,7 @@ public class TokenManager implements ITokenManagement {
 		Token tokenFound = myStore.Find(Token);
 
 		if (tokenFound!=null){
-			result = isValid(tokenFound);
+			return isValid(tokenFound);
 		}
 		return result;
 	}

@@ -9,35 +9,37 @@ import Transport4Future.TokenManagement.Data.TokenRequest;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class Hash {
-	private static final String INPUT_MD5 = "Stardust-";
-	private static final String TYPE_64 = "%064x";
-	private static final String TYPE_32 = "%32x";
+	
 	private static final String ERROR_ALGORITHM = "Error: no such hashing algorithm.";
-	private static final String SHA = "SHA-256";
-	private static final String MD5 = "MD5";
+
 
 	public String generateHashMD5(TokenRequest req) throws TokenManagementException {
 		MessageDigest md;
+		String key="Stardust-";
+		String algorithm="MD5";
+		String type="%032x";
 		try {
-			md = MessageDigest.getInstance(MD5);
+			md = MessageDigest.getInstance(algorithm);
 		} catch (NoSuchAlgorithmException e) {
 			throw new TokenManagementException(ERROR_ALGORITHM);
 		}
 		
-		String input =  INPUT_MD5 + req.toString();
+		String input =  key + req.toString();
 		
 		md.update(input.getBytes(StandardCharsets.UTF_8));
 		byte[] digest = md.digest();
 
 		// Beware the hex length. If MD5 -> 32:"%032x", but for instance, in SHA-256 it should be "%064x" 
-		String hex = String.format(TYPE_32, new BigInteger(1, digest));
+		String hex = String.format(type, new BigInteger(1, digest));
 		return hex;
 	}
 
 	public String generateHashSHA256(String dataToSign) throws TokenManagementException {
 		MessageDigest md;
+		String algorithm="SHA-256";
+		String type="%064x";
 		try {
-			md = MessageDigest.getInstance(SHA);
+			md = MessageDigest.getInstance(algorithm);
 		} catch (NoSuchAlgorithmException e) {
 			throw new TokenManagementException(ERROR_ALGORITHM);
 		}
@@ -46,7 +48,7 @@ public class Hash {
 		byte[] digest = md.digest();
 
 		// Beware the hex length. If MD5 -> 32:"%032x", but for instance, in SHA-256 it should be "%064x"
-		String signature = String.format(TYPE_64, new BigInteger(1, digest));
+		String signature = String.format(type, new BigInteger(1, digest));
 		return signature;
 	}
 

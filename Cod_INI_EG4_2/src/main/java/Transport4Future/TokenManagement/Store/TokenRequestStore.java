@@ -16,8 +16,8 @@ public class TokenRequestStore {
 
 	private static final String STORE_PATH = System.getProperty("user.dir")+"/Store/tokenRequestsStore.json";
 
-	public void storeTokenRequest(TokenRequest req, String hex)
-			throws TokenManagementException {
+	public void storeTokenRequest(TokenRequest req, String hex)throws TokenManagementException {
+		
 		HashMap<String, TokenRequest> clonedMap = this.loadTokenRequestToMemory();
 		if (clonedMap==null) {
         	clonedMap = new HashMap<String, TokenRequest>();
@@ -31,9 +31,9 @@ public class TokenRequestStore {
 		// Guardar el Tokens Requests Store actualizado
 		String jsonString = gson.toJson(clonedMap);
         FileWriter fileWriter;
-    	String storePath =  STORE_PATH;
+    
 		try {
-			fileWriter = new FileWriter(storePath);
+			fileWriter = new FileWriter(STORE_PATH);
 	        fileWriter.write(jsonString);
 	        fileWriter.close();
 		} catch (IOException e) {
