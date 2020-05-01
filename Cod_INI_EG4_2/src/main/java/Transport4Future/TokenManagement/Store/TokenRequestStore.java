@@ -17,7 +17,6 @@ public class TokenRequestStore {
 	private static final String STORE_PATH = System.getProperty("user.dir")+"/Store/tokenRequestsStore.json";
 
 	public void storeTokenRequest(TokenRequest req, String hex)throws TokenManagementException {
-		
 		HashMap<String, TokenRequest> clonedMap = this.loadTokenRequestToMemory();
 		if (clonedMap==null) {
         	clonedMap = new HashMap<String, TokenRequest>();
@@ -27,6 +26,10 @@ public class TokenRequestStore {
         	clonedMap.put (hex, req);
         }
 
+		savingToken(clonedMap);
+	}
+	
+	void savingToken(HashMap<String, TokenRequest> clonedMap) throws TokenManagementException {
 		Gson gson = new Gson();
 		// Guardar el Tokens Requests Store actualizado
 		String jsonString = gson.toJson(clonedMap);
@@ -40,6 +43,7 @@ public class TokenRequestStore {
 			throw new TokenManagementException("Error: Unable to save a new token in the internal licenses store");
 		}
 	}
+	
 
 	private HashMap<String, TokenRequest> loadTokenRequestToMemory() {
 		//Generar un HashMap para guardar los objetos

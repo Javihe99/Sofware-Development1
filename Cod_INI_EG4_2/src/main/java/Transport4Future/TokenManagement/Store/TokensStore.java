@@ -14,11 +14,11 @@ import com.google.gson.stream.JsonReader;
 import Transport4Future.TokenManagement.Data.Token;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
-public class TokensStore {
+public class TokensStore  {
 
-	private static final String STORE_PATH = System.getProperty("user.dir") + "/Store/tokenStore.json";
+	static final String STORE_PATH = System.getProperty("user.dir") + "/Store/tokenStore.json";
 	
-	private List<Token> tokensList;
+	List<Token> tokensList;
 	
 	public TokensStore() {
 		this.Load();
@@ -39,25 +39,24 @@ public class TokensStore {
 			this.tokensList = new ArrayList<Token>();
 		}	
 	}
-	
-	public void Add (Token newToken) throws TokenManagementException {
-
-		if (Find(newToken.getTokenValue())==null) {
-			tokensList.add(newToken);
-			this.Save();
-		}
-	}
-	
-	private void Save () throws TokenManagementException {
-		Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+	protected void Save() throws TokenManagementException {
+		Gson gson = new Gson();
 		String jsonString = gson.toJson(this.tokensList);
-        FileWriter fileWriter;
+	    FileWriter fileWriter;
 		try {
 			fileWriter = new FileWriter(STORE_PATH);
 	        fileWriter.write(jsonString);
 	        fileWriter.close();
 		} catch (IOException e) {
 			throw new TokenManagementException("Error: Unable to save a new token in the internal licenses store");
+		}
+	}
+	
+	public void Add (Token newToken) throws TokenManagementException {
+
+		if (Find(newToken.getTokenValue())==null) {
+			tokensList.add(newToken);
+			this.Save();
 		}
 	}
 	
