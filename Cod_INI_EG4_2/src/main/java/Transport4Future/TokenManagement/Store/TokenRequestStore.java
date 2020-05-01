@@ -14,8 +14,7 @@ import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class TokenRequestStore {
 
-	private static final String STORE_TOKEN = "/Store/tokenRequestsStore.json";
-	private static final String USER_DIR = "user.dir";
+	private static final String STORE_PATH = System.getProperty("user.dir")+"/Store/tokenRequestsStore.json";
 
 	public void storeTokenRequest(TokenRequest req, String hex)
 			throws TokenManagementException {
@@ -32,7 +31,7 @@ public class TokenRequestStore {
 		// Guardar el Tokens Requests Store actualizado
 		String jsonString = gson.toJson(clonedMap);
         FileWriter fileWriter;
-    	String storePath = System.getProperty(USER_DIR) + STORE_TOKEN;
+    	String storePath =  STORE_PATH;
 		try {
 			fileWriter = new FileWriter(storePath);
 	        fileWriter.write(jsonString);
@@ -49,7 +48,7 @@ public class TokenRequestStore {
 		try {
 			Gson gson = new Gson();
 			String jsonString;
-			String storePath = System.getProperty(USER_DIR) + STORE_TOKEN;
+			String storePath = STORE_PATH;
 			
 			Object object = gson.fromJson(new FileReader(storePath), Object.class);
 			jsonString = gson.toJson(object);	

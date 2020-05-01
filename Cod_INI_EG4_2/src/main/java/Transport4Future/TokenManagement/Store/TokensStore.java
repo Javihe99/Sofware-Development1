@@ -16,12 +16,14 @@ import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class TokensStore {
 
+	private static final String STORE_PATH = System.getProperty("user.dir") + "/Store/tokenStore.json";
+	
 	private List<Token> tokensList;
 	
 	private void Load () {
 		try
 		{
-			JsonReader reader = new JsonReader(new FileReader(System.getProperty("user.dir") + "/Store/tokenStore.json"));
+			JsonReader reader = new JsonReader(new FileReader(STORE_PATH));
 			Gson gson = new Gson();
 			Token [] myArray = gson.fromJson(reader, Token[].class);
 			this.tokensList = new ArrayList<Token>();
@@ -48,7 +50,7 @@ public class TokensStore {
 		String jsonString = gson.toJson(this.tokensList);
         FileWriter fileWriter;
 		try {
-			fileWriter = new FileWriter(System.getProperty("user.dir") + "/Store/tokenStore.json");
+			fileWriter = new FileWriter(STORE_PATH);
 	        fileWriter.write(jsonString);
 	        fileWriter.close();
 		} catch (IOException e) {

@@ -14,6 +14,8 @@ import com.google.gson.reflect.TypeToken;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class Token {
+	private static final String STORE_PATH = System.getProperty("user.dir")+"/Store/tokenRequestsStore.json";
+	
 	private String alg;
 	private String typ;
 	private String device;
@@ -67,7 +69,7 @@ private void checkTokenRequestInformationFormat() throws TokenManagementExceptio
 		Gson gson = new Gson();
 		String jsonString;
 		HashMap<String, TokenRequest> clonedMap = null;
-		String storePath = System.getProperty("user.dir") + "/Store/tokenRequestsStore.json";
+		String storePath = STORE_PATH;
 
 		//Cargar el almacen de tokens request en memoria y añadir el nuevo si no existe
 		try {
