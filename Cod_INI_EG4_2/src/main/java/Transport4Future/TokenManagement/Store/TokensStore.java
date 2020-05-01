@@ -20,6 +20,9 @@ public class TokensStore {
 	
 	private List<Token> tokensList;
 	
+	public TokensStore() {
+		this.Load();
+	}
 	private void Load () {
 		try
 		{
@@ -38,7 +41,6 @@ public class TokensStore {
 	}
 	
 	public void Add (Token newToken) throws TokenManagementException {
-		this.Load();
 		if (Find(newToken.getTokenValue())==null) {
 			tokensList.add(newToken);
 			this.Save();
@@ -60,7 +62,6 @@ public class TokensStore {
 	
 	public Token Find (String tokenToFind) {
 		Token result = null;
-		this.Load();
 	    for (Token token : this.tokensList) {
 	        if (token.getTokenValue().equals(tokenToFind)) {
 	        	result = token;
