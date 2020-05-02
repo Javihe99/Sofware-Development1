@@ -1,4 +1,4 @@
-package Transport4Future.TokenManagement.Data;
+package Transport4Future.TokenManagement.Data.Attribute;
 
 import java.util.regex.Pattern;
 

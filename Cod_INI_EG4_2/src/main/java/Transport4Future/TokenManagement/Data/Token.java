@@ -11,6 +11,9 @@ import java.util.regex.Pattern;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import Transport4Future.TokenManagement.Data.Attribute.Device;
+import Transport4Future.TokenManagement.Data.Attribute.Email;
+import Transport4Future.TokenManagement.Data.Attribute.Fecha;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class Token {

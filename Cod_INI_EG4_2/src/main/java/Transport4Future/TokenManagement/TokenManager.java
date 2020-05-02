@@ -30,7 +30,9 @@ import Transport4Future.TokenManagement.Exception.TokenManagementException;
 import Transport4Future.TokenManagement.Parser.JSONFileParser;
 import Transport4Future.TokenManagement.Store.TokenRequestStore;
 import Transport4Future.TokenManagement.Store.TokensStore;
-import Transport4Future.TokenManagement.Utils.Hash;
+
+import Transport4Future.TokenManagement.Utils.MDHasher;
+import Transport4Future.TokenManagement.Utils.SHA256Hasher;
 
 import java.lang.reflect.Type;
 
@@ -67,8 +69,8 @@ public class TokenManager implements ITokenManagement {
 		JSONFileParser myFile = new JSONFileParser();
 		JsonObject jsonLicense = myFile.parseJSONFile(InputFile);	
 		TokenRequest req = createTokenRequest(jsonLicense);
-		Hash myHash = new Hash();
-		String hex = myHash.generateHashMD5(req);
+		MDHasher myHash = new  MDHasher();
+		String hex = myHash.Hash(req.toString());
 		TokenRequestStore myStore = new TokenRequestStore();
         myStore.storeTokenRequest(req, hex);
 		//Devolver el hash
@@ -111,8 +113,8 @@ public class TokenManager implements ITokenManagement {
 
 		
 		String dataToSign =myToken.getHeader() + myToken.getPayload();
-		Hash myHash = new Hash();
-		String signature = myHash.generateHashSHA256(dataToSign);
+		SHA256Hasher myHash = new SHA256Hasher();
+		String signature = myHash.Hash(dataToSign);
 
 		myToken.setSignature(signature);
 		

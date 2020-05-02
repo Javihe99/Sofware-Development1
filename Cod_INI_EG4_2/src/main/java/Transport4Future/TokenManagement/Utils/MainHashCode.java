@@ -7,17 +7,20 @@ import java.security.NoSuchAlgorithmException;
 
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
-public class MainHashCode {
-
+public abstract class MainHashCode implements IHash{
+	
+	protected String algorithm;
+	protected String type;
+	
 	public MainHashCode() {
 		super();
 	}
 
-	protected String generateHash(String algorithm, String type, String input) throws TokenManagementException {
+	public String Hash(String input) throws TokenManagementException {
 		
 		MessageDigest md;
 		try {
-			md = MessageDigest.getInstance(algorithm);
+			md = MessageDigest.getInstance(this.algorithm);
 		} catch (NoSuchAlgorithmException e) {
 			throw new TokenManagementException("Error: no such hashing algorithm.");
 		}
@@ -26,7 +29,7 @@ public class MainHashCode {
 		byte[] digest = md.digest();
 	
 		// Beware the hex length. If MD5 -> 32:"%032x", but for instance, in SHA-256 it should be "%064x" 
-		String hex = String.format(type, new BigInteger(1, digest));
+		String hex = String.format(this.type, new BigInteger(1, digest));
 		return hex;
 	}
 

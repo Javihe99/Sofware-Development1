@@ -1,10 +1,10 @@
-package Transport4Future.TokenManagement.Data;
+package Transport4Future.TokenManagement.Data.Attribute;
 
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class TypeOfDevice extends Attribute {
 
-	TypeOfDevice(String Value) throws TokenManagementException{
+	public TypeOfDevice(String Value) throws TokenManagementException{
 		
 		this.value=this.validate(Value);
 	}

@@ -2,6 +2,12 @@ package Transport4Future.TokenManagement.Data;
 
 import java.util.regex.Pattern;
 
+import Transport4Future.TokenManagement.Data.Attribute.DeviceName;
+import Transport4Future.TokenManagement.Data.Attribute.DriverVersion;
+import Transport4Future.TokenManagement.Data.Attribute.Email;
+import Transport4Future.TokenManagement.Data.Attribute.MacAddress;
+import Transport4Future.TokenManagement.Data.Attribute.SerialNumber;
+import Transport4Future.TokenManagement.Data.Attribute.TypeOfDevice;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class TokenRequest {
