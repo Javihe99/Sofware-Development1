@@ -14,7 +14,7 @@ public class TokenRequestGenerationTest {
 	private TokenManager myManager;
 	
 	public TokenRequestGenerationTest () {
-		 myManager = new TokenManager ();
+		 myManager = TokenManager.getSingleton();
 	}
 	
 	@DisplayName ("Invalid Test Cases")

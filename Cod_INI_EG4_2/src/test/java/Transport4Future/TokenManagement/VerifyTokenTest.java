@@ -18,7 +18,7 @@ class VerifyTokenTest {
 	private TokenManager myManager;
 	
 	public VerifyTokenTest () {
-		 myManager = new TokenManager ();
+		 myManager = TokenManager.getSingleton();
 	}
 	
 	private void resetTokenStore () throws TokenManagementException {

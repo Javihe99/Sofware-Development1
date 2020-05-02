@@ -37,6 +37,31 @@ import java.lang.reflect.Type;
 
 public class TokenManager implements ITokenManagement {
 
+	private static TokenManager manager;
+	
+	private TokenManager() {
+		
+	}
+
+	public static TokenManager getSingleton() {
+		if(manager == null) {
+			manager = new TokenManager();
+		}
+		
+		return manager;
+	}
+	
+	@Override
+	public TokenManager clone() {
+		try {
+			throw new CloneNotSupportedException();
+		}catch(CloneNotSupportedException ex) {
+			System.out.println("Token Manager cannot be cloned");
+		}
+		
+		return null;
+	}
+	
 	public String TokenRequestGeneration (String InputFile) throws TokenManagementException{
 
 		JSONFileParser myFile = new JSONFileParser();
