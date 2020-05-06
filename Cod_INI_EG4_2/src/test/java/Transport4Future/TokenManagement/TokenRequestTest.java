@@ -15,10 +15,10 @@ import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 class TokenRequestTest {
 
-	private TokenManager myManager;
+	private TokenStore myManager;
 	
 	public TokenRequestTest () {
-		 myManager = TokenManager.getSingleton();
+		 myManager = TokenStore.getSingleton();
 	}
 	
 	@DisplayName ("Caso de prueba - Eliminación de Llave Inicial")

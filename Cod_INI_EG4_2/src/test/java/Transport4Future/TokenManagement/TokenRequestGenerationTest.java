@@ -11,10 +11,10 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class TokenRequestGenerationTest {
-	private TokenManager myManager;
+	private TokenStore myManager;
 	
 	public TokenRequestGenerationTest () {
-		 myManager = TokenManager.getSingleton();
+		 myManager = TokenStore.getSingleton();
 	}
 	
 	@DisplayName ("Invalid Test Cases")

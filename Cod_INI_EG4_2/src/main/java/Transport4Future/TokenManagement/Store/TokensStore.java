@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
+import Transport4Future.TokenManagement.TokenStore;
 import Transport4Future.TokenManagement.Data.Token;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
@@ -20,9 +21,33 @@ public class TokensStore  {
 	
 	List<Token> tokensList;
 	
-	public TokensStore() {
+	private static TokensStore myTokenStore;
+	
+	private TokensStore() {
 		this.Load();
 	}
+
+	public static TokensStore getSingleton() {
+		if(myTokenStore == null) {
+			myTokenStore = new TokensStore();
+		}
+		
+		return myTokenStore;
+	}
+	
+	@Override
+	public TokenStore clone() {
+		try {
+			throw new CloneNotSupportedException();
+		}catch(CloneNotSupportedException ex) {
+			System.out.println("Token Manager cannot be cloned");
+		}
+		
+		return null;
+	}
+	
+	
+
 	private void Load () {
 		try
 		{

@@ -37,24 +37,24 @@ import Transport4Future.TokenManagement.Utils.SHA256Hasher;
 import java.lang.reflect.Type;
 
 
-public class TokenManager implements ITokenManagement {
+public class TokenStore implements ITokenManagement {
 
-	private static TokenManager manager;
+	private static TokenStore manager;
 	
-	private TokenManager() {
+	private TokenStore() {
 		
 	}
 
-	public static TokenManager getSingleton() {
+	public static TokenStore getSingleton() {
 		if(manager == null) {
-			manager = new TokenManager();
+			manager = new TokenStore();
 		}
 		
 		return manager;
 	}
 	
 	@Override
-	public TokenManager clone() {
+	public TokenStore clone() {
 		try {
 			throw new CloneNotSupportedException();
 		}catch(CloneNotSupportedException ex) {
@@ -71,7 +71,7 @@ public class TokenManager implements ITokenManagement {
 		TokenRequest req = createTokenRequest(jsonLicense);
 		MDHasher myHash = new  MDHasher();
 		String hex = myHash.Hash(req.toString());
-		TokenRequestStore myStore = new TokenRequestStore();
+		TokenRequestStore myStore =TokenRequestStore.getSingleton();
         myStore.storeTokenRequest(req, hex);
 		//Devolver el hash
 		return hex;
@@ -122,7 +122,7 @@ public class TokenManager implements ITokenManagement {
 		String encodedString = Base64.getUrlEncoder().encodeToString(stringToEncode.getBytes());
 		myToken.setTokenValue(encodedString);
 		
-		TokensStore myStore = new TokensStore ();
+		TokensStore myStore = TokensStore.getSingleton();
 		myStore.Add(myToken);
 		
 		return myToken.getTokenValue();
@@ -158,7 +158,7 @@ public class TokenManager implements ITokenManagement {
 	
 	public boolean VerifyToken (String Token) throws TokenManagementException{
 		boolean result = false;
-		TokensStore myStore = new TokensStore ();
+		TokensStore myStore = TokensStore.getSingleton();
 		
 		Token tokenFound = myStore.Find(Token);
 
