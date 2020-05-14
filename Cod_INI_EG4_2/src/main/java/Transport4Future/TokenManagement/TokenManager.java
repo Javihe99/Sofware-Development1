@@ -80,33 +80,8 @@ public class TokenManager implements ITokenManagement {
 		//Devolver el hash
 		return hex;
 	}
-
 	
-	private TokenRequest createTokenRequest(JsonObject jsonLicense) throws TokenManagementException {
-		TokenRequest req;
-		String deviceName = "";
-		String typeOfDevice = "";
-		String driverVersion = "";
-		String supportEMail = "";
-		String serialNumber = "";
-		String macAddress = "";			
 
-
-		
-		try {			
-			deviceName = jsonLicense.getString("Device Name");
-			typeOfDevice = jsonLicense.getString("Type of Device");
-			driverVersion = jsonLicense.getString("Driver Version");
-			supportEMail = jsonLicense.getString("Support e-mail");
-			serialNumber = jsonLicense.getString("Serial Number");
-			macAddress = jsonLicense.getString("MAC Address");			
-		} catch (Exception pe) {
-			throw new TokenManagementException("Error: invalid input data in JSON structure.");
-		}
-
-		
-		return new TokenRequest(deviceName, typeOfDevice, driverVersion, supportEMail, serialNumber, macAddress);
-	}
 
 	
 	public String RequestToken (String InputFile) throws TokenManagementException{
@@ -131,24 +106,6 @@ public class TokenManager implements ITokenManagement {
 		return myToken.getTokenValue();
 	}
 
-	
-	private Token createRequestToken(JsonObject jsonLicense) throws TokenManagementException {
-		Token myToken;
-		String tokenRquest = "";
-		String email = "";
-		String date = "";		
-		
-		try {			
-			tokenRquest = jsonLicense.getString("Token Request");
-			email = jsonLicense.getString("Notification e-mail");
-			date = jsonLicense.getString("Request Date");					
-		} catch (Exception pe) {
-			throw new TokenManagementException("Error: invalid input data in JSON structure.");
-		}
-
-	 
-		return new Token (tokenRquest, date, email);
-	}
 
 	private boolean isValid (Token tokenFound) {
 		if ((!tokenFound.isExpired()) && (tokenFound.isGranted())){
