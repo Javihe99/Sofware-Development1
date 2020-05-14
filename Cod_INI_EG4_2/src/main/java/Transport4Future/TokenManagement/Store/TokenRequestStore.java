@@ -9,10 +9,36 @@ import java.util.HashMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import Transport4Future.TokenManagement.TokenManager;
 import Transport4Future.TokenManagement.Data.TokenRequest;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class TokenRequestStore {
+	
+	private static TokenRequestStore mystore;
+	
+	private TokenRequestStore() {
+		
+	}
+
+	public static TokenRequestStore getSingleton() {
+		if(mystore == null) {
+			mystore = new TokenRequestStore();
+		}
+		
+		return mystore;
+	}
+	
+	@Override
+	public TokenManager clone() {
+		try {
+			throw new CloneNotSupportedException();
+		}catch(CloneNotSupportedException ex) {
+			System.out.println("Token Manager cannot be cloned");
+		}
+		
+		return null;
+	}
 
 	private static final String STORE_PATH = System.getProperty("user.dir")+"/Store/tokenRequestsStore.json";
 

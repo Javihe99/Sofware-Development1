@@ -1,5 +1,6 @@
 package Transport4Future.TokenManagement.Data;
 
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import Transport4Future.TokenManagement.Data.Attribute.DeviceName;
@@ -9,6 +10,7 @@ import Transport4Future.TokenManagement.Data.Attribute.MacAddress;
 import Transport4Future.TokenManagement.Data.Attribute.SerialNumber;
 import Transport4Future.TokenManagement.Data.Attribute.TypeOfDevice;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
+import Transport4Future.TokenManagement.Parser.JSONTokenRequestParser;
 
 public class TokenRequest {
 	
@@ -19,13 +21,18 @@ public class TokenRequest {
 	private SerialNumber serialNumber;
 	private MacAddress macAddress;
 		
-	public TokenRequest(String deviceName, String typeOfDevice, String driverVersion, String supportEMail, String serialNumber, String macAddress) throws TokenManagementException {
-		this.deviceName = new DeviceName(deviceName);
-		this.typeOfDevice = new TypeOfDevice(typeOfDevice);
-		this.driverVersion = new DriverVersion(driverVersion);
-		this.supportEMail = new Email(supportEMail);
-		this.serialNumber = new SerialNumber(serialNumber);
-		this.macAddress = new MacAddress(macAddress);
+	public TokenRequest(String InputFile) throws TokenManagementException {
+		
+		HashMap<String, String> myMap = new HashMap<String, String> ();
+		JSONTokenRequestParser myFile = new JSONTokenRequestParser();
+		myMap = (HashMap) myFile.createTokenRequest(InputFile);
+		
+		this.deviceName = new DeviceName(myMap.get("deviceName"));
+		this.typeOfDevice = new TypeOfDevice(myMap.get("typeOfDevice"));
+		this.driverVersion = new DriverVersion(myMap.get("driverVersion"));
+		this.supportEMail = new Email(myMap.get("supportEMail"));
+		this.serialNumber = new SerialNumber(myMap.get("serialNumber"));
+		this.macAddress = new MacAddress(myMap.get("macAddress"));
 	
 	}
 	

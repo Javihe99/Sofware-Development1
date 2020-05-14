@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -15,6 +16,8 @@ import Transport4Future.TokenManagement.Data.Attribute.Device;
 import Transport4Future.TokenManagement.Data.Attribute.Email;
 import Transport4Future.TokenManagement.Data.Attribute.Fecha;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
+import Transport4Future.TokenManagement.Parser.JSONTokenParser;
+import Transport4Future.TokenManagement.Parser.JSONTokenRequestParser;
 
 public class Token {
 	private static final String STORE_PATH = System.getProperty("user.dir")+"/Store/tokenRequestsStore.json";
@@ -29,12 +32,17 @@ public class Token {
 	private String signature;
 	private String tokenValue;
 	
-	public Token (String Device, String RequestDate, String NotificationEmail) throws TokenManagementException {
+	public Token (String InputFile) throws TokenManagementException {
+		
+		HashMap<String, String> myMap = new HashMap<String, String> ();
+		JSONTokenParser myFile = new JSONTokenParser();
+		myMap = (HashMap) myFile.createRequestToken(InputFile);
+		
 		this.alg = "HS256";
 		this.typ = "PDS";
-		this.device = new Device(Device);
-		this.requestDate = new Fecha(RequestDate);
-		this.notificationEmail = new Email(NotificationEmail);
+		this.device = new Device(myMap.get("Device"));
+		this.requestDate = new Fecha(myMap.get("RequestDate"));
+		this.notificationEmail = new Email(myMap.get("RequestDate"));
 		this.iat = 1584523340892l;
 		if ((this.device.getValue().startsWith("5"))){
 			this.exp = this.iat + 604800000l;
@@ -72,6 +80,21 @@ private void checkTokenRequestInformationFormat() throws TokenManagementExceptio
 			throw new TokenManagementException("Error: Token Request Not Previously Registered");	        	
         }
 	}
+
+public void encodeToken(Token myToken) {
+	String stringToEncode = myToken.getHeader() + myToken.getPayload() + myToken.getSignature();
+	String encodedString = Base64.getUrlEncoder().encodeToString(stringToEncode.getBytes());
+	myToken.setTokenValue(encodedString);
+}
+
+public boolean isValid (Token tokenFound) {
+	if ((!tokenFound.isExpired()) && (tokenFound.isGranted())){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 	
 	public String getDevice() {
 		return device.getValue();
