@@ -15,10 +15,10 @@ import org.junit.jupiter.api.Test;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 class VerifyTokenTest {
-	private TokenStore myManager;
+	private TokenManager myManager;
 	
 	public VerifyTokenTest () {
-		 myManager = TokenStore.getSingleton();
+		 myManager = TokenManager.getSingleton();
 	}
 	
 	private void resetTokenStore () throws TokenManagementException {

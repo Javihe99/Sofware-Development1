@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
-import Transport4Future.TokenManagement.TokenStore;
+import Transport4Future.TokenManagement.TokenManager;
 import Transport4Future.TokenManagement.Data.Token;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
@@ -36,7 +36,7 @@ public class TokensStore  {
 	}
 	
 	@Override
-	public TokenStore clone() {
+	public TokenManager clone() {
 		try {
 			throw new CloneNotSupportedException();
 		}catch(CloneNotSupportedException ex) {

@@ -28,6 +28,8 @@ import Transport4Future.TokenManagement.Data.Token;
 import Transport4Future.TokenManagement.Data.TokenRequest;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 import Transport4Future.TokenManagement.Parser.JSONFileParser;
+import Transport4Future.TokenManagement.Parser.JSONTokenParser;
+import Transport4Future.TokenManagement.Parser.JSONTokenRequestParser;
 import Transport4Future.TokenManagement.Store.TokenRequestStore;
 import Transport4Future.TokenManagement.Store.TokensStore;
 
@@ -37,24 +39,24 @@ import Transport4Future.TokenManagement.Utils.SHA256Hasher;
 import java.lang.reflect.Type;
 
 
-public class TokenStore implements ITokenManagement {
+public class TokenManager implements ITokenManagement {
 
-	private static TokenStore manager;
+	private static TokenManager manager;
 	
-	private TokenStore() {
+	private TokenManager() {
 		
 	}
 
-	public static TokenStore getSingleton() {
+	public static TokenManager getSingleton() {
 		if(manager == null) {
-			manager = new TokenStore();
+			manager = new TokenManager();
 		}
 		
 		return manager;
 	}
 	
 	@Override
-	public TokenStore clone() {
+	public TokenManager clone() {
 		try {
 			throw new CloneNotSupportedException();
 		}catch(CloneNotSupportedException ex) {
@@ -66,9 +68,11 @@ public class TokenStore implements ITokenManagement {
 	
 	public String TokenRequestGeneration (String InputFile) throws TokenManagementException{
 
-		JSONFileParser myFile = new JSONFileParser();
-		JsonObject jsonLicense = myFile.parseJSONFile(InputFile);	
-		TokenRequest req = createTokenRequest(jsonLicense);
+	
+		JSONTokenRequestParser myFile = new JSONTokenRequestParser();
+	
+		TokenRequest req = (TokenRequest) myFile.createTokenRequest(InputFile);
+		
 		MDHasher myHash = new  MDHasher();
 		String hex = myHash.Hash(req.toString());
 		TokenRequestStore myStore =TokenRequestStore.getSingleton();
@@ -107,9 +111,8 @@ public class TokenStore implements ITokenManagement {
 	
 	public String RequestToken (String InputFile) throws TokenManagementException{
 
-		JSONFileParser myFile = new JSONFileParser();
-		JsonObject jsonLicense = myFile.parseJSONFile(InputFile);	
-		Token myToken = createRequestToken(jsonLicense);
+		JSONTokenParser myFile = new JSONTokenParser();
+		Token myToken = (Token) myFile.createRequestToken(InputFile);
 
 		
 		String dataToSign =myToken.getHeader() + myToken.getPayload();
