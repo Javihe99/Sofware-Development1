@@ -11,6 +11,8 @@ import Transport4Future.TokenManagement.Data.Attribute.SerialNumber;
 import Transport4Future.TokenManagement.Data.Attribute.TypeOfDevice;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 import Transport4Future.TokenManagement.Parser.JSONTokenRequestParser;
+import Transport4Future.TokenManagement.Store.TokenRequestStore;
+import Transport4Future.TokenManagement.Utils.MDHasher;
 
 public class TokenRequest {
 	
@@ -20,6 +22,7 @@ public class TokenRequest {
 	private Email supportEMail;
 	private SerialNumber serialNumber;
 	private MacAddress macAddress;
+	private String hash;
 		
 	public TokenRequest(String InputFile) throws TokenManagementException {
 		
@@ -27,20 +30,33 @@ public class TokenRequest {
 		JSONTokenRequestParser myFile = new JSONTokenRequestParser();
 		myMap = (HashMap) myFile.createTokenRequest(InputFile);
 		
-		this.deviceName = new DeviceName(myMap.get("deviceName"));
-		this.typeOfDevice = new TypeOfDevice(myMap.get("typeOfDevice"));
-		this.driverVersion = new DriverVersion(myMap.get("driverVersion"));
-		this.supportEMail = new Email(myMap.get("supportEMail"));
-		this.serialNumber = new SerialNumber(myMap.get("serialNumber"));
-		this.macAddress = new MacAddress(myMap.get("macAddress"));
+		this.deviceName = new DeviceName(myMap.get("Device Name"));
+		this.typeOfDevice = new TypeOfDevice(myMap.get("Type of Device"));
+		this.driverVersion = new DriverVersion(myMap.get("Driver Version"));
+		this.supportEMail = new Email(myMap.get("Support e-mail"));
+		this.serialNumber = new SerialNumber(myMap.get("Serial Number"));
+		this.macAddress = new MacAddress(myMap.get("MAC Address"));
+		this.hash=generateHash();
+		Store();
 	
 	}
+	private void Store() throws TokenManagementException {
+		TokenRequestStore myStore =new TokenRequestStore();
+        myStore.storeTokenRequest(this, this.hash);
+	}
 	
-
+	private String generateHash() throws TokenManagementException {
+		
+		MDHasher myHash = new  MDHasher();
+		String hex = myHash.Hash(this.toString());
+		return hex;
+	}
 	public String getDeviceName() {
 		return deviceName.getValue();
 	}
-
+	public String getHash() {
+		return this.hash;
+	}
 	public String getTypeOfDevice() {
 		return typeOfDevice.getValue();
 	}

@@ -68,14 +68,8 @@ public class TokenManager implements ITokenManagement {
 	
 	public String TokenRequestGeneration (String InputFile) throws TokenManagementException{
 
-
-		
-		MDHasher myHash = new  MDHasher();
-		String hex = myHash.Hash(req.toString());
-		TokenRequestStore myStore =TokenRequestStore.getSingleton();
-        myStore.storeTokenRequest(req, hex);
-		//Devolver el hash
-		return hex;
+		TokenRequest req= new TokenRequest(InputFile);
+		return req.getHash();
 	}
 	
 
@@ -84,7 +78,7 @@ public class TokenManager implements ITokenManagement {
 	public String RequestToken (String InputFile) throws TokenManagementException{
 
 
-
+		Token myToken=  new Token (InputFile);
 		
 		String dataToSign =myToken.getHeader() + myToken.getPayload();
 		SHA256Hasher myHash = new SHA256Hasher();
@@ -94,10 +88,14 @@ public class TokenManager implements ITokenManagement {
 		
 		myToken.encodeToken(myToken);
 		
-		TokensStore myStore = TokensStore.getSingleton();
-		myStore.Add(myToken);
+		saveTokenInStore(myToken);
 		
 		return myToken.getTokenValue();
+	}
+
+	public void saveTokenInStore(Token myToken) throws TokenManagementException {
+		TokensStore myStore = TokensStore.getSingleton();
+		myStore.Add(myToken);
 	}
 
 

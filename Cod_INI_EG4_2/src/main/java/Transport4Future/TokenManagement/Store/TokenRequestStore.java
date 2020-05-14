@@ -17,7 +17,7 @@ public class TokenRequestStore {
 	
 	private static TokenRequestStore mystore;
 	
-	private TokenRequestStore() {
+	public TokenRequestStore() {
 		
 	}
 

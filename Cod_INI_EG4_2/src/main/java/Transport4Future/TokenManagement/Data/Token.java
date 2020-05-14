@@ -40,9 +40,11 @@ public class Token {
 		
 		this.alg = "HS256";
 		this.typ = "PDS";
-		this.device = new Device(myMap.get("Device"));
-		this.requestDate = new Fecha(myMap.get("RequestDate"));
-		this.notificationEmail = new Email(myMap.get("RequestDate"));
+	
+		this.device = new Device(myMap.get("Token Request"));
+		
+		this.requestDate = new Fecha(myMap.get("Request Date"));
+		this.notificationEmail = new Email(myMap.get("Notification e-mail"));
 		this.iat = 1584523340892l;
 		if ((this.device.getValue().startsWith("5"))){
 			this.exp = this.iat + 604800000l;

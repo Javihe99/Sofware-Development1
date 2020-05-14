@@ -15,18 +15,18 @@ public class JSONTokenParser {
 		JsonObject jsonLicense = myFile.parseJSONFile(InputFile);	
 		
 		HashMap<String, String> myMap = new HashMap<String, String> ();
-		String tokenRquest = "Token Request";
+		String tokenRequest = "Token Request";
 		String email = "Notification e-mail";
 		String date = "Request Date";		
 		
 		try {			
-			myMap.put(tokenRquest, jsonLicense.getString("Token Request"));
+			myMap.put(tokenRequest, jsonLicense.getString("Token Request"));
 			myMap.put(email, jsonLicense.getString("Notification e-mail"));
 			myMap.put(date,jsonLicense.getString("Request Date"));					
 		} catch (Exception pe) {
 			throw new TokenManagementException("Error: invalid input data in JSON structure.");
 		}
-
+		
 	 
 		return myMap;
 	}
