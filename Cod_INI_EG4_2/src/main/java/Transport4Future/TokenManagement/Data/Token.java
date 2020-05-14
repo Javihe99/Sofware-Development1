@@ -79,6 +79,15 @@ public void encodeToken(Token myToken) {
 	String encodedString = Base64.getUrlEncoder().encodeToString(stringToEncode.getBytes());
 	myToken.setTokenValue(encodedString);
 }
+
+public boolean isValid (Token tokenFound) {
+	if ((!tokenFound.isExpired()) && (tokenFound.isGranted())){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 	
 	public String getDevice() {
 		return device.getValue();

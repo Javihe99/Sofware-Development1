@@ -106,14 +106,7 @@ public class TokenManager implements ITokenManagement {
 
 
 
-	private boolean isValid (Token tokenFound) {
-		if ((!tokenFound.isExpired()) && (tokenFound.isGranted())){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+
 	
 	public boolean VerifyToken (String Token) throws TokenManagementException{
 		boolean result = false;
@@ -122,7 +115,7 @@ public class TokenManager implements ITokenManagement {
 		Token tokenFound = myStore.Find(Token);
 
 		if (tokenFound!=null){
-			return isValid(tokenFound);
+			return tokenFound.isValid(tokenFound);
 		}
 		return result;
 	}
