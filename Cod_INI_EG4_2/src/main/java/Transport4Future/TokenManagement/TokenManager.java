@@ -96,15 +96,14 @@ public class TokenManager implements ITokenManagement {
 
 		myToken.setSignature(signature);
 		
-		String stringToEncode = myToken.getHeader() + myToken.getPayload() + myToken.getSignature();
-		String encodedString = Base64.getUrlEncoder().encodeToString(stringToEncode.getBytes());
-		myToken.setTokenValue(encodedString);
+		myToken.encodeToken(myToken);
 		
 		TokensStore myStore = TokensStore.getSingleton();
 		myStore.Add(myToken);
 		
 		return myToken.getTokenValue();
 	}
+
 
 
 	private boolean isValid (Token tokenFound) {

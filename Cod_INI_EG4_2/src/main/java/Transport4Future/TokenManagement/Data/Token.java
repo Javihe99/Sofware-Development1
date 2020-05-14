@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -72,6 +73,12 @@ private void checkTokenRequestInformationFormat() throws TokenManagementExceptio
 			throw new TokenManagementException("Error: Token Request Not Previously Registered");	        	
         }
 	}
+
+public void encodeToken(Token myToken) {
+	String stringToEncode = myToken.getHeader() + myToken.getPayload() + myToken.getSignature();
+	String encodedString = Base64.getUrlEncoder().encodeToString(stringToEncode.getBytes());
+	myToken.setTokenValue(encodedString);
+}
 	
 	public String getDevice() {
 		return device.getValue();
