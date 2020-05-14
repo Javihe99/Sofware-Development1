@@ -68,10 +68,7 @@ public class TokenManager implements ITokenManagement {
 	
 	public String TokenRequestGeneration (String InputFile) throws TokenManagementException{
 
-	
-		JSONTokenRequestParser myFile = new JSONTokenRequestParser();
-	
-		TokenRequest req = (TokenRequest) myFile.createTokenRequest(InputFile);
+
 		
 		MDHasher myHash = new  MDHasher();
 		String hex = myHash.Hash(req.toString());
@@ -86,8 +83,7 @@ public class TokenManager implements ITokenManagement {
 	
 	public String RequestToken (String InputFile) throws TokenManagementException{
 
-		JSONTokenParser myFile = new JSONTokenParser();
-		Token myToken = (Token) myFile.createRequestToken(InputFile);
+
 
 		
 		String dataToSign =myToken.getHeader() + myToken.getPayload();

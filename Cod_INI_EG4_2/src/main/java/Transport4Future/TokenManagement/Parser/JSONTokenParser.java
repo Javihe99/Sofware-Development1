@@ -1,28 +1,33 @@
 package Transport4Future.TokenManagement.Parser;
 
+import java.util.HashMap;
+
 import javax.json.JsonObject;
 
 import Transport4Future.TokenManagement.Data.Token;
 import Transport4Future.TokenManagement.Exception.TokenManagementException;
 
 public class JSONTokenParser {
-	public Token createRequestToken(String InputFile) throws TokenManagementException {
+	
+	public HashMap<String, String> createRequestToken(String InputFile) throws TokenManagementException {
 		Token myToken;
 		JSONFileParser myFile = new JSONFileParser();
 		JsonObject jsonLicense = myFile.parseJSONFile(InputFile);	
-		String tokenRquest = "";
-		String email = "";
-		String date = "";		
+		
+		HashMap<String, String> myMap = new HashMap<String, String> ();
+		String tokenRquest = "Token Request";
+		String email = "Notification e-mail";
+		String date = "Request Date";		
 		
 		try {			
-			tokenRquest = jsonLicense.getString("Token Request");
-			email = jsonLicense.getString("Notification e-mail");
-			date = jsonLicense.getString("Request Date");					
+			myMap.put(tokenRquest, jsonLicense.getString("Token Request"));
+			myMap.put(email, jsonLicense.getString("Notification e-mail"));
+			myMap.put(date,jsonLicense.getString("Request Date"));					
 		} catch (Exception pe) {
 			throw new TokenManagementException("Error: invalid input data in JSON structure.");
 		}
 
 	 
-		return new Token (tokenRquest, date, email);
+		return myMap;
 	}
 }
